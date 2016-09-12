@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GaS-7D-aDO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Page-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Main Page" customClass="ViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,392 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uXP-Ko-tlV">
+                                <rect key="frame" x="75" y="150" width="450" height="360"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQ6-fS-gRH">
+                                        <rect key="frame" x="56" y="0.0" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="7ES-M5-do7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Mbed 連線" backgroundImage="bannerBlue"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="connectMbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtd-2a-afP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-rY-Yxs">
+                                        <rect key="frame" x="56" y="148" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="2xm-Hf-0JJ"/>
+                                        </constraints>
+                                        <state key="normal" title="環境箱數據" backgroundImage="bannerOrange"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="bhO-Ot-MnX" kind="show" id="c8I-fU-JQY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhn-Gl-e0V">
+                                        <rect key="frame" x="56" y="296" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="Mvx-fG-rw9"/>
+                                        </constraints>
+                                        <state key="normal" title="環境箱設定" backgroundImage="bannerGreen"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="g8n-ok-F8M" kind="show" id="5qn-sk-cfD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hKH-rY-Yxs" firstAttribute="width" secondItem="uXP-Ko-tlV" secondAttribute="width" multiplier="0.75" id="Dyj-4m-e1G"/>
+                                    <constraint firstItem="hhn-Gl-e0V" firstAttribute="width" secondItem="uXP-Ko-tlV" secondAttribute="width" multiplier="0.75" id="Kt0-K0-Jfz"/>
+                                    <constraint firstItem="GQ6-fS-gRH" firstAttribute="width" secondItem="uXP-Ko-tlV" secondAttribute="width" multiplier="0.75" id="WxD-KX-nHy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uXP-Ko-tlV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lan-DK-Hsw"/>
+                            <constraint firstItem="uXP-Ko-tlV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Txa-B0-J8L"/>
+                            <constraint firstItem="uXP-Ko-tlV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="XRl-4r-6P2"/>
+                            <constraint firstItem="uXP-Ko-tlV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="aLz-M7-kwq"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="7Ka-Ka-uS2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="887" y="997"/>
+        </scene>
+        <!--Green Menu-->
+        <scene sceneID="qmD-LE-bWN">
+            <objects>
+                <viewController id="g8n-ok-F8M" userLabel="Green Menu" customClass="ViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pyd-jK-isz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZKL-P4-h6B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3ui-jj-f8t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="36v-nh-eAj">
+                                <rect key="frame" x="75" y="150" width="450" height="360"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ch-Cl-9jO">
+                                        <rect key="frame" x="56" y="0.0" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="m6x-yx-2zC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="恆溫控制" backgroundImage="bannerGreen"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-kI-g77">
+                                        <rect key="frame" x="56" y="148" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="Y1d-cZ-yOo"/>
+                                        </constraints>
+                                        <state key="normal" title="光照控制" backgroundImage="bannerGreen"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-Q4-kTN">
+                                        <rect key="frame" x="56" y="296" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="RLN-dW-c50"/>
+                                        </constraints>
+                                        <state key="normal" title="遠端餵食" backgroundImage="bannerGreen"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2G7-kI-g77" firstAttribute="width" secondItem="36v-nh-eAj" secondAttribute="width" multiplier="0.75" id="SpG-RT-gqz"/>
+                                    <constraint firstItem="0ch-Cl-9jO" firstAttribute="width" secondItem="36v-nh-eAj" secondAttribute="width" multiplier="0.75" id="eaw-Ge-nn9"/>
+                                    <constraint firstItem="xYg-Q4-kTN" firstAttribute="width" secondItem="36v-nh-eAj" secondAttribute="width" multiplier="0.75" id="uQM-bk-21Q"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="36v-nh-eAj" firstAttribute="centerY" secondItem="3ui-jj-f8t" secondAttribute="centerY" constant="30" id="BSz-Cf-kxF"/>
+                            <constraint firstItem="36v-nh-eAj" firstAttribute="height" secondItem="3ui-jj-f8t" secondAttribute="height" multiplier="0.6" id="BcQ-bg-NEk"/>
+                            <constraint firstItem="36v-nh-eAj" firstAttribute="width" secondItem="3ui-jj-f8t" secondAttribute="width" multiplier="0.75" id="Keb-To-uei"/>
+                            <constraint firstItem="36v-nh-eAj" firstAttribute="centerX" secondItem="3ui-jj-f8t" secondAttribute="centerX" id="Sj4-3R-Kur"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="qzx-lF-1zw"/>
+                    <connections>
+                        <segue destination="84L-zG-OUk" kind="show" id="f88-eH-G4t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lyV-gg-olw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661" y="1353"/>
+        </scene>
+        <!--Green Setting-->
+        <scene sceneID="8D2-UV-UzR">
+            <objects>
+                <tableViewController id="84L-zG-OUk" userLabel="Green Setting" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oqw-aw-9BH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XgC-WS-npu">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Label">
+                                    <attributes>
+                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <font key="NSFont" size="20" name="Courier-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YIv-YE-vmR">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YIv-YE-vmR" id="HoE-Fn-M45">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ti2-EL-Sxp">
+                                            <rect key="frame" x="8" y="11" width="284" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8v-cc-RBq">
+                                            <rect key="frame" x="417.5" y="6" width="51" height="31"/>
+                                        </switch>
+                                        <slider opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TgB-3Y-ToX">
+                                            <rect key="frame" x="298" y="7" width="288" height="31"/>
+                                        </slider>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TgB-3Y-ToX" firstAttribute="leading" secondItem="ti2-EL-Sxp" secondAttribute="trailing" constant="8" id="3W1-xw-XKe"/>
+                                        <constraint firstItem="TgB-3Y-ToX" firstAttribute="width" secondItem="ti2-EL-Sxp" secondAttribute="width" id="EJg-43-ucC"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="ti2-EL-Sxp" secondAttribute="leading" id="Vcr-oe-cT6"/>
+                                        <constraint firstItem="Q8v-cc-RBq" firstAttribute="centerX" secondItem="TgB-3Y-ToX" secondAttribute="centerX" id="fac-rk-MwT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TgB-3Y-ToX" secondAttribute="trailing" constant="8" id="iDg-JW-P83"/>
+                                        <constraint firstItem="ti2-EL-Sxp" firstAttribute="centerY" secondItem="HoE-Fn-M45" secondAttribute="centerY" id="v2R-jw-cnl"/>
+                                        <constraint firstItem="Q8v-cc-RBq" firstAttribute="centerY" secondItem="TgB-3Y-ToX" secondAttribute="centerY" id="vZL-Mn-9PY"/>
+                                        <constraint firstItem="TgB-3Y-ToX" firstAttribute="centerY" secondItem="HoE-Fn-M45" secondAttribute="centerY" id="zp6-oO-JtG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="84L-zG-OUk" id="e5y-Bx-kuH"/>
+                            <outlet property="delegate" destination="84L-zG-OUk" id="DrI-fM-Ocm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tI0-qI-KA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="1353"/>
+        </scene>
+        <!--Orange Menu-->
+        <scene sceneID="eD4-ms-CAn">
+            <objects>
+                <viewController id="bhO-Ot-MnX" userLabel="Orange Menu" customClass="ViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qaw-QH-btY"/>
+                        <viewControllerLayoutGuide type="bottom" id="b6U-Rm-r2p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FxC-uz-hB9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mm8-DP-6uB">
+                                <rect key="frame" x="75" y="150" width="450" height="360"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iH-wz-NSs">
+                                        <rect key="frame" x="56" y="0.0" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="4o3-le-QEG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="溫度" backgroundImage="bannerOrange"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKK-Mm-6jm">
+                                        <rect key="frame" x="56" y="98" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="xhC-2n-zM5"/>
+                                        </constraints>
+                                        <state key="normal" title="濕度" backgroundImage="bannerOrange"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-MQ-Ilf">
+                                        <rect key="frame" x="56" y="197.5" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="meu-La-6op"/>
+                                        </constraints>
+                                        <state key="normal" title="照度" backgroundImage="bannerOrange"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-nQ-FWy">
+                                        <rect key="frame" x="56" y="296" width="338" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="z8A-qy-V3x"/>
+                                        </constraints>
+                                        <state key="normal" title="活動" backgroundImage="bannerOrange"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lKK-Mm-6jm" firstAttribute="width" secondItem="Mm8-DP-6uB" secondAttribute="width" multiplier="0.75" id="0VR-pT-Dt4"/>
+                                    <constraint firstItem="1fa-MQ-Ilf" firstAttribute="width" secondItem="Mm8-DP-6uB" secondAttribute="width" multiplier="0.75" id="Q4r-oY-6e5"/>
+                                    <constraint firstItem="7iH-wz-NSs" firstAttribute="width" secondItem="Mm8-DP-6uB" secondAttribute="width" multiplier="0.75" id="QtR-zi-57v"/>
+                                    <constraint firstItem="nlu-nQ-FWy" firstAttribute="width" secondItem="Mm8-DP-6uB" secondAttribute="width" multiplier="0.75" id="Ur0-Yk-jAH"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mm8-DP-6uB" firstAttribute="height" secondItem="FxC-uz-hB9" secondAttribute="height" multiplier="0.6" id="AcC-KO-KMh"/>
+                            <constraint firstItem="Mm8-DP-6uB" firstAttribute="centerY" secondItem="FxC-uz-hB9" secondAttribute="centerY" constant="30" id="Mb8-du-8Ji"/>
+                            <constraint firstItem="Mm8-DP-6uB" firstAttribute="width" secondItem="FxC-uz-hB9" secondAttribute="width" multiplier="0.75" id="nlj-NS-QZn"/>
+                            <constraint firstItem="Mm8-DP-6uB" firstAttribute="centerX" secondItem="FxC-uz-hB9" secondAttribute="centerX" id="un7-4d-HrJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="u7M-hQ-vUq"/>
+                    <connections>
+                        <segue destination="bu9-yh-uBg" kind="show" identifier="OrangeSegue" id="ESS-S6-Yuc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0pR-oY-l0X" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661" y="587"/>
+        </scene>
+        <!--Orange Chart-->
+        <scene sceneID="DVt-0T-dc4">
+            <objects>
+                <viewController id="bu9-yh-uBg" userLabel="Orange Chart" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Ee-Kt-Z5k"/>
+                        <viewControllerLayoutGuide type="bottom" id="iYI-Nr-JKO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q44-0Y-SGb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMf-8X-Yqg">
+                                <rect key="frame" x="20" y="160" width="560" height="420"/>
+                                <color key="backgroundColor" red="1" green="0.5824648315352523" blue="0.7711675815292508" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUf-hd-EhV">
+                                <rect key="frame" x="75" y="82" width="450" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ReI-tY-QCe"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="20" name="Courier-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="EMf-8X-Yqg" secondAttribute="leading" id="8x5-Zg-u7k"/>
+                            <constraint firstItem="iYI-Nr-JKO" firstAttribute="top" secondItem="EMf-8X-Yqg" secondAttribute="bottom" constant="20" id="MfA-5H-whS"/>
+                            <constraint firstItem="PUf-hd-EhV" firstAttribute="centerX" secondItem="q44-0Y-SGb" secondAttribute="centerX" id="TZp-fX-dZi"/>
+                            <constraint firstItem="EMf-8X-Yqg" firstAttribute="top" secondItem="PUf-hd-EhV" secondAttribute="bottom" constant="14" id="eSS-sB-opJ"/>
+                            <constraint firstItem="PUf-hd-EhV" firstAttribute="width" secondItem="q44-0Y-SGb" secondAttribute="width" multiplier="0.75" id="hFT-m8-h3p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EMf-8X-Yqg" secondAttribute="trailing" id="n0K-bz-DCQ"/>
+                            <constraint firstItem="PUf-hd-EhV" firstAttribute="top" secondItem="7Ee-Kt-Z5k" secondAttribute="bottom" constant="18" id="p0f-Mt-2q9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lpi-WN-TDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="587"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jOs-JO-70f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GaS-7D-aDO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7DZ-OR-js1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="waG-gO-ZTZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkZ-ea-OJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="997"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bannerBlue" width="128" height="32"/>
+        <image name="bannerGreen" width="128" height="32"/>
+        <image name="bannerOrange" width="128" height="32"/>
+    </resources>
 </document>

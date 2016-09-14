@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		71EC1FF121EEB10CF5479781 /* Pods_MbedRSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518F92828327B2DF24C21F8C /* Pods_MbedRSDemo.framework */; };
+		A810EAA91D878C7D007752C2 /* Mbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAA81D878C7D007752C2 /* Mbedder.swift */; };
+		A810EAAB1D87C9F9007752C2 /* lwm2m_id.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAA1D87C9F9007752C2 /* lwm2m_id.swift */; };
+		A810EAAD1D88021F007752C2 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAC1D88021F007752C2 /* OrangeViewController.swift */; };
+		A810EAAF1D880274007752C2 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAE1D880274007752C2 /* GreenViewController.swift */; };
+		A810EAB11D880292007752C2 /* OrangeChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAB01D880292007752C2 /* OrangeChartViewController.swift */; };
+		A810EAB31D8802B1007752C2 /* GreenSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */; };
 		A8D992AE1D8676AD007B1636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AD1D8676AD007B1636 /* AppDelegate.swift */; };
 		A8D992B01D8676AD007B1636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AF1D8676AD007B1636 /* ViewController.swift */; };
 		A8D992B31D8676AD007B1636 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D992B11D8676AD007B1636 /* Main.storyboard */; };
@@ -42,6 +48,12 @@
 		60592A45DF610055B46B3A2D /* Pods_MbedRSDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MbedRSDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7836C7FF0A18CF5519BAB8BD /* Pods_MbedRSDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MbedRSDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F3E7A5DA5B13304108E0C7 /* Pods-MbedRSDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A810EAA81D878C7D007752C2 /* Mbedder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mbedder.swift; sourceTree = "<group>"; };
+		A810EAAA1D87C9F9007752C2 /* lwm2m_id.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lwm2m_id.swift; sourceTree = "<group>"; };
+		A810EAAC1D88021F007752C2 /* OrangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
+		A810EAAE1D880274007752C2 /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		A810EAB01D880292007752C2 /* OrangeChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeChartViewController.swift; sourceTree = "<group>"; };
+		A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenSettingTableViewController.swift; sourceTree = "<group>"; };
 		A8D992AA1D8676AD007B1636 /* MbedRSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MbedRSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992AD1D8676AD007B1636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D992AF1D8676AD007B1636 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +67,6 @@
 		A8D992C91D8676AD007B1636 /* MbedRSDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MbedRSDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992CD1D8676AD007B1636 /* MbedRSDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbedRSDemoUITests.swift; sourceTree = "<group>"; };
 		A8D992CF1D8676AD007B1636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8D992DB1D8676C7007B1636 /* lwm2m_id.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwm2m_id.h; sourceTree = "<group>"; };
 		C380E16D6AA4AC055F9697BB /* Pods-MbedRSDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB4F6B727A63671571C58AFE /* Pods-MbedRSDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoUITests/Pods-MbedRSDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DEFE6AD7DEB8E4009AC86F12 /* Pods-MbedRSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemo/Pods-MbedRSDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +127,6 @@
 		A8D992A11D8676AD007B1636 = {
 			isa = PBXGroup;
 			children = (
-				A8D992DB1D8676C7007B1636 /* lwm2m_id.h */,
 				A8D992AC1D8676AD007B1636 /* MbedRSDemo */,
 				A8D992C11D8676AD007B1636 /* MbedRSDemoTests */,
 				A8D992CC1D8676AD007B1636 /* MbedRSDemoUITests */,
@@ -141,10 +151,16 @@
 			children = (
 				A8D992AD1D8676AD007B1636 /* AppDelegate.swift */,
 				A8D992AF1D8676AD007B1636 /* ViewController.swift */,
+				A8D992B91D8676AD007B1636 /* Info.plist */,
 				A8D992B11D8676AD007B1636 /* Main.storyboard */,
 				A8D992B41D8676AD007B1636 /* Assets.xcassets */,
 				A8D992B61D8676AD007B1636 /* LaunchScreen.storyboard */,
-				A8D992B91D8676AD007B1636 /* Info.plist */,
+				A810EAA81D878C7D007752C2 /* Mbedder.swift */,
+				A810EAAA1D87C9F9007752C2 /* lwm2m_id.swift */,
+				A810EAAC1D88021F007752C2 /* OrangeViewController.swift */,
+				A810EAB01D880292007752C2 /* OrangeChartViewController.swift */,
+				A810EAAE1D880274007752C2 /* GreenViewController.swift */,
+				A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */,
 			);
 			path = MbedRSDemo;
 			sourceTree = "<group>";
@@ -430,8 +446,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A810EAAF1D880274007752C2 /* GreenViewController.swift in Sources */,
+				A810EAAB1D87C9F9007752C2 /* lwm2m_id.swift in Sources */,
+				A810EAB11D880292007752C2 /* OrangeChartViewController.swift in Sources */,
+				A810EAAD1D88021F007752C2 /* OrangeViewController.swift in Sources */,
 				A8D992B01D8676AD007B1636 /* ViewController.swift in Sources */,
 				A8D992AE1D8676AD007B1636 /* AppDelegate.swift in Sources */,
+				A810EAB31D8802B1007752C2 /* GreenSettingTableViewController.swift in Sources */,
+				A810EAA91D878C7D007752C2 /* Mbedder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -96,7 +96,7 @@
         <!--Green Menu-->
         <scene sceneID="qmD-LE-bWN">
             <objects>
-                <viewController id="g8n-ok-F8M" userLabel="Green Menu" customClass="ViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g8n-ok-F8M" userLabel="Green Menu" customClass="GreenViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pyd-jK-isz"/>
                         <viewControllerLayoutGuide type="bottom" id="ZKL-P4-h6B"/>
@@ -108,7 +108,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="36v-nh-eAj">
                                 <rect key="frame" x="75" y="150" width="450" height="360"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ch-Cl-9jO">
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ch-Cl-9jO">
                                         <rect key="frame" x="56" y="0.0" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="m6x-yx-2zC"/>
@@ -121,8 +121,11 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goSetting:" destination="g8n-ok-F8M" eventType="touchUpInside" id="r2b-JB-E2I"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-kI-g77">
+                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-kI-g77">
                                         <rect key="frame" x="56" y="148" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="Y1d-cZ-yOo"/>
@@ -134,8 +137,11 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goSetting:" destination="g8n-ok-F8M" eventType="touchUpInside" id="uZU-5Z-aZr"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-Q4-kTN">
+                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-Q4-kTN">
                                         <rect key="frame" x="56" y="296" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="RLN-dW-c50"/>
@@ -147,6 +153,9 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goSetting:" destination="g8n-ok-F8M" eventType="touchUpInside" id="vce-Ov-lHp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -166,7 +175,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="qzx-lF-1zw"/>
                     <connections>
-                        <segue destination="84L-zG-OUk" kind="show" id="f88-eH-G4t"/>
+                        <segue destination="84L-zG-OUk" kind="show" identifier="GreenSegue" id="f88-eH-G4t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyV-gg-olw" sceneMemberID="firstResponder"/>
@@ -176,7 +185,7 @@
         <!--Green Setting-->
         <scene sceneID="8D2-UV-UzR">
             <objects>
-                <tableViewController id="84L-zG-OUk" userLabel="Green Setting" sceneMemberID="viewController">
+                <tableViewController id="84L-zG-OUk" userLabel="Green Setting" customClass="GreenSettingTableViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oqw-aw-9BH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,7 +196,7 @@
                             <attributedString key="attributedText">
                                 <fragment content="Label">
                                     <attributes>
-                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="20" name="Courier-Bold"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -196,7 +205,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YIv-YE-vmR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="YIv-YE-vmR">
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YIv-YE-vmR" id="HoE-Fn-M45">
@@ -206,7 +215,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ti2-EL-Sxp">
                                             <rect key="frame" x="8" y="11" width="284" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8v-cc-RBq">
@@ -234,6 +243,9 @@
                             <outlet property="delegate" destination="84L-zG-OUk" id="DrI-fM-Ocm"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="settingTitle" destination="XgC-WS-npu" id="zAy-4P-dFc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tI0-qI-KA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,7 +254,7 @@
         <!--Orange Menu-->
         <scene sceneID="eD4-ms-CAn">
             <objects>
-                <viewController id="bhO-Ot-MnX" userLabel="Orange Menu" customClass="ViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bhO-Ot-MnX" userLabel="Orange Menu" customClass="OrangeViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qaw-QH-btY"/>
                         <viewControllerLayoutGuide type="bottom" id="b6U-Rm-r2p"/>
@@ -336,7 +348,7 @@
         <!--Orange Chart-->
         <scene sceneID="DVt-0T-dc4">
             <objects>
-                <viewController id="bu9-yh-uBg" userLabel="Orange Chart" sceneMemberID="viewController">
+                <viewController id="bu9-yh-uBg" userLabel="Orange Chart" customClass="OrangeChartViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ee-Kt-Z5k"/>
                         <viewControllerLayoutGuide type="bottom" id="iYI-Nr-JKO"/>
@@ -357,7 +369,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="20" name="Courier-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>

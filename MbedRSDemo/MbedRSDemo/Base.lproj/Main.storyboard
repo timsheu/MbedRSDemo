@@ -186,7 +186,7 @@
         <scene sceneID="8D2-UV-UzR">
             <objects>
                 <tableViewController id="84L-zG-OUk" userLabel="Green Setting" customClass="GreenSettingTableViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oqw-aw-9BH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oqw-aw-9BH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,7 +266,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mm8-DP-6uB">
                                 <rect key="frame" x="75" y="150" width="450" height="360"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iH-wz-NSs">
+                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iH-wz-NSs">
                                         <rect key="frame" x="56" y="0.0" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="4o3-le-QEG"/>
@@ -279,8 +279,11 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showStatistic:" destination="bhO-Ot-MnX" eventType="touchUpInside" id="cBw-q9-2g0"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKK-Mm-6jm">
+                                    <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKK-Mm-6jm">
                                         <rect key="frame" x="56" y="98" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="xhC-2n-zM5"/>
@@ -292,8 +295,11 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showStatistic:" destination="bhO-Ot-MnX" eventType="touchUpInside" id="wxI-QP-zGm"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-MQ-Ilf">
+                                    <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-MQ-Ilf">
                                         <rect key="frame" x="56" y="197.5" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="meu-La-6op"/>
@@ -305,8 +311,11 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showStatistic:" destination="bhO-Ot-MnX" eventType="touchUpInside" id="Sqz-hW-Wb3"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-nQ-FWy">
+                                    <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-nQ-FWy">
                                         <rect key="frame" x="56" y="296" width="338" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="z8A-qy-V3x"/>
@@ -318,6 +327,9 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showStatistic:" destination="bhO-Ot-MnX" eventType="touchUpInside" id="exd-g5-S9K"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -357,9 +369,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMf-8X-Yqg">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMf-8X-Yqg" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="160" width="560" height="420"/>
-                                <color key="backgroundColor" red="1" green="0.5824648315352523" blue="0.7711675815292508" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81518606375678604" green="0.99835759401321411" blue="0.83219422212536864" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUf-hd-EhV">
                                 <rect key="frame" x="75" y="82" width="450" height="64"/>
@@ -389,6 +401,10 @@
                             <constraint firstItem="PUf-hd-EhV" firstAttribute="top" secondItem="7Ee-Kt-Z5k" secondAttribute="bottom" constant="18" id="p0f-Mt-2q9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lineChart" destination="EMf-8X-Yqg" id="Jmw-Uw-O7t"/>
+                        <outlet property="titleLabel" destination="PUf-hd-EhV" id="CJT-mB-cLi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpi-WN-TDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

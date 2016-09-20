@@ -9,6 +9,7 @@
 import UIKit
 
 class OrangeViewController: UIViewController {
+    var targetTitleString: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,33 @@ class OrangeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func showStatistic(sender: UIButton){
+        switch sender.tag {
+        case 20:
+            targetTitleString = "Temperature"
+            break
+        case 21:
+            targetTitleString = "Humidity"
+            break
+        case 22:
+            targetTitleString = "Lux"
+            break
+        case 23:
+            targetTitleString = "Activity"
+            break
+        default:
+            targetTitleString = "Temperature"
+            break
+        }
+        self.performSegueWithIdentifier("OrangeSegue", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "OrangeSegue" {
+            let dest = segue.destinationViewController as? OrangeChartViewController
+            dest?.setCustomTitle(targetTitleString!)
+        }
+    }
     /*
     // MARK: - Navigation
 

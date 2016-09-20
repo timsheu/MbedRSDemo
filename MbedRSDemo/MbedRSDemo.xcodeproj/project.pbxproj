@@ -14,6 +14,7 @@
 		A810EAAF1D880274007752C2 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAE1D880274007752C2 /* GreenViewController.swift */; };
 		A810EAB11D880292007752C2 /* OrangeChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAB01D880292007752C2 /* OrangeChartViewController.swift */; };
 		A810EAB31D8802B1007752C2 /* GreenSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */; };
+		A85797271D8FCE8A005874F5 /* NodeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85797261D8FCE8A005874F5 /* NodeElement.swift */; };
 		A8D992AE1D8676AD007B1636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AD1D8676AD007B1636 /* AppDelegate.swift */; };
 		A8D992B01D8676AD007B1636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AF1D8676AD007B1636 /* ViewController.swift */; };
 		A8D992B31D8676AD007B1636 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D992B11D8676AD007B1636 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		A810EAAE1D880274007752C2 /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		A810EAB01D880292007752C2 /* OrangeChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeChartViewController.swift; sourceTree = "<group>"; };
 		A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenSettingTableViewController.swift; sourceTree = "<group>"; };
+		A85797261D8FCE8A005874F5 /* NodeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElement.swift; sourceTree = "<group>"; };
 		A8D992AA1D8676AD007B1636 /* MbedRSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MbedRSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992AD1D8676AD007B1636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D992AF1D8676AD007B1636 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				A810EAB01D880292007752C2 /* OrangeChartViewController.swift */,
 				A810EAAE1D880274007752C2 /* GreenViewController.swift */,
 				A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */,
+				A85797261D8FCE8A005874F5 /* NodeElement.swift */,
 			);
 			path = MbedRSDemo;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				A810EAAB1D87C9F9007752C2 /* lwm2m_id.swift in Sources */,
 				A810EAB11D880292007752C2 /* OrangeChartViewController.swift in Sources */,
 				A810EAAD1D88021F007752C2 /* OrangeViewController.swift in Sources */,
+				A85797271D8FCE8A005874F5 /* NodeElement.swift in Sources */,
 				A8D992B01D8676AD007B1636 /* ViewController.swift in Sources */,
 				A8D992AE1D8676AD007B1636 /* AppDelegate.swift in Sources */,
 				A810EAB31D8802B1007752C2 /* GreenSettingTableViewController.swift in Sources */,

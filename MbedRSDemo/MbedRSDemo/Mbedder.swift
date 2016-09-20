@@ -74,22 +74,29 @@ class Mbedder: NSObject {
                 for (index, element) in nodesArray.enumerate(){
                     print("index: \(index), element: \(element.jsonObject?["uri"]))")
                     let uri = element.jsonObject?["uri"]?.stringValue
-                    let uriArray = uri!.characters.split{$0 == "/"}.map(String.init)
-                    let nodeNumber = uriArray[1]
-                    self.endNodes.setValue(nodeNumber, forKey: (element.jsonObject?["uri"]?.stringValue)!)
-                    self.delegate?.didReadList()
+                    let (sensorType, dataNumber, dataType) = self.resolveNameFromURI(uri!)
+                    if sensorType == "" || dataNumber == "" || dataType == ""{
+                        continue
+                    }
+                    let nodeElement = NodeElement(nodeName: sensorType, dataSerial: dataNumber, dataType: dataType, originData: element.jsonObject!)
+                    self.endNodes.setValue(nodeElement, forKey: dataNumber)
                 }
+                self.delegate?.didReadList()
             }catch{
                 print("Error perfroming GET \(error)")
             }
         }
     }
     
-    internal func resolveNameFromURI(uri: String) -> NSMutableDictionary{
-        let dict: NSMutableDictionary = [:]
+    internal func resolveNameFromURI(uri: String) -> (String, String, String){
+        
         var splitArray = uri.characters.split{$0 == "/"}.map(String.init)
+        let dataNumber = splitArray[0]
         var sensorType: String?
-        switch splitArray[1] {
+        if splitArray.count < 3 {
+            return ("", "", "")
+        }
+        switch splitArray[0] {
         case lwm2m_id.LWM2MID_GAS_LEVEL:
             sensorType = "LWM2MID_GAS_LEVEL"
             break;
@@ -113,10 +120,9 @@ class Mbedder: NSObject {
             sensorType = "NONE"
             break;
         }
-        dict.setValue(sensorType, forKey: "sensorType")
         
         var dataType: String?
-        switch splitArray[3] {
+        switch splitArray[2] {
         case lwm2m_id.LWM2MID_DIGI_IN_STATE:
             dataType = "unknown"
             break;
@@ -142,8 +148,32 @@ class Mbedder: NSObject {
             dataType = "unknown"
         }
         
-        dict.setValue(dataType, forKey: "dataType")
-        return dict
+        return (sensorType!, dataNumber, dataType!)
     }
     
+    internal func getNodeValue(dataNumber: String) -> (String, String) {
+        let listNodes = basicList + "/" + self.endName! + dataNumber
+        var payload: String = ""
+        var status: String = ""
+        
+        guard let rest = RestController.createFromURLString(listNodes) else{
+            print("Bad URL during init with value: " + listNodes)
+            return ("Bad", "URL")
+        }
+        
+        rest.get(nil, withOptions: self.option!){ result, httpResponse in
+            do{
+                let json = try result.value()
+                let nodesArray = json.jsonArray!
+                for (index, element) in nodesArray.enumerate(){
+                    print("index: \(index), element: \(element.jsonObject?["id"]))")
+                    payload = (element.jsonObject?["payload"]?.stringValue)!
+                    status = (element.jsonObject?["status"]?.stringValue)!
+                }
+            }catch{
+                print("Error perfroming GET \(error)")
+            }
+        }
+        return (payload, status)
+    }
 }

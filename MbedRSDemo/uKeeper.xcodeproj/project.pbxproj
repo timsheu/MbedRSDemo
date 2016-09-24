@@ -56,17 +56,17 @@
 		A810EAB01D880292007752C2 /* OrangeChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeChartViewController.swift; sourceTree = "<group>"; };
 		A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenSettingTableViewController.swift; sourceTree = "<group>"; };
 		A85797261D8FCE8A005874F5 /* NodeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElement.swift; sourceTree = "<group>"; };
-		A8D992AA1D8676AD007B1636 /* MbedRSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MbedRSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8D992AA1D8676AD007B1636 /* uKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992AD1D8676AD007B1636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D992AF1D8676AD007B1636 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A8D992B21D8676AD007B1636 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8D992B41D8676AD007B1636 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8D992B71D8676AD007B1636 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8D992B91D8676AD007B1636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8D992BE1D8676AD007B1636 /* MbedRSDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MbedRSDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8D992BE1D8676AD007B1636 /* uKeeper.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uKeeper.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992C21D8676AD007B1636 /* MbedRSDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbedRSDemoTests.swift; sourceTree = "<group>"; };
 		A8D992C41D8676AD007B1636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8D992C91D8676AD007B1636 /* MbedRSDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MbedRSDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8D992C91D8676AD007B1636 /* uKeeper.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uKeeper.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992CD1D8676AD007B1636 /* MbedRSDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbedRSDemoUITests.swift; sourceTree = "<group>"; };
 		A8D992CF1D8676AD007B1636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C380E16D6AA4AC055F9697BB /* Pods-MbedRSDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,9 +141,9 @@
 		A8D992AB1D8676AD007B1636 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A8D992AA1D8676AD007B1636 /* MbedRSDemo.app */,
-				A8D992BE1D8676AD007B1636 /* MbedRSDemoTests.xctest */,
-				A8D992C91D8676AD007B1636 /* MbedRSDemoUITests.xctest */,
+				A8D992AA1D8676AD007B1636 /* uKeeper.app */,
+				A8D992BE1D8676AD007B1636 /* uKeeper.xctest */,
+				A8D992C91D8676AD007B1636 /* uKeeper.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,9 +189,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A8D992A91D8676AD007B1636 /* MbedRSDemo */ = {
+		A8D992A91D8676AD007B1636 /* uKeeper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8D992D21D8676AD007B1636 /* Build configuration list for PBXNativeTarget "MbedRSDemo" */;
+			buildConfigurationList = A8D992D21D8676AD007B1636 /* Build configuration list for PBXNativeTarget "uKeeper" */;
 			buildPhases = (
 				B196635B17A43CE31E910A80 /* [CP] Check Pods Manifest.lock */,
 				A8D992A61D8676AD007B1636 /* Sources */,
@@ -204,14 +204,14 @@
 			);
 			dependencies = (
 			);
-			name = MbedRSDemo;
+			name = uKeeper;
 			productName = MbedRSDemo;
-			productReference = A8D992AA1D8676AD007B1636 /* MbedRSDemo.app */;
+			productReference = A8D992AA1D8676AD007B1636 /* uKeeper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A8D992BD1D8676AD007B1636 /* MbedRSDemoTests */ = {
+		A8D992BD1D8676AD007B1636 /* uKeeperTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8D992D51D8676AD007B1636 /* Build configuration list for PBXNativeTarget "MbedRSDemoTests" */;
+			buildConfigurationList = A8D992D51D8676AD007B1636 /* Build configuration list for PBXNativeTarget "uKeeperTests" */;
 			buildPhases = (
 				735D442F7F1726168D71F9A0 /* [CP] Check Pods Manifest.lock */,
 				A8D992BA1D8676AD007B1636 /* Sources */,
@@ -225,14 +225,14 @@
 			dependencies = (
 				A8D992C01D8676AD007B1636 /* PBXTargetDependency */,
 			);
-			name = MbedRSDemoTests;
+			name = uKeeperTests;
 			productName = MbedRSDemoTests;
-			productReference = A8D992BE1D8676AD007B1636 /* MbedRSDemoTests.xctest */;
+			productReference = A8D992BE1D8676AD007B1636 /* uKeeper.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A8D992C81D8676AD007B1636 /* MbedRSDemoUITests */ = {
+		A8D992C81D8676AD007B1636 /* uKeeperUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8D992D81D8676AD007B1636 /* Build configuration list for PBXNativeTarget "MbedRSDemoUITests" */;
+			buildConfigurationList = A8D992D81D8676AD007B1636 /* Build configuration list for PBXNativeTarget "uKeeperUITests" */;
 			buildPhases = (
 				922971DDF456D4F96D756026 /* [CP] Check Pods Manifest.lock */,
 				A8D992C51D8676AD007B1636 /* Sources */,
@@ -245,9 +245,9 @@
 			dependencies = (
 				A8D992CB1D8676AD007B1636 /* PBXTargetDependency */,
 			);
-			name = MbedRSDemoUITests;
+			name = uKeeperUITests;
 			productName = MbedRSDemoUITests;
-			productReference = A8D992C91D8676AD007B1636 /* MbedRSDemoUITests.xctest */;
+			productReference = A8D992C91D8676AD007B1636 /* uKeeper.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A8D992A51D8676AD007B1636 /* Build configuration list for PBXProject "MbedRSDemo" */;
+			buildConfigurationList = A8D992A51D8676AD007B1636 /* Build configuration list for PBXProject "uKeeper" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -287,9 +287,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A8D992A91D8676AD007B1636 /* MbedRSDemo */,
-				A8D992BD1D8676AD007B1636 /* MbedRSDemoTests */,
-				A8D992C81D8676AD007B1636 /* MbedRSDemoUITests */,
+				A8D992A91D8676AD007B1636 /* uKeeper */,
+				A8D992BD1D8676AD007B1636 /* uKeeperTests */,
+				A8D992C81D8676AD007B1636 /* uKeeperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -482,12 +482,12 @@
 /* Begin PBXTargetDependency section */
 		A8D992C01D8676AD007B1636 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A8D992A91D8676AD007B1636 /* MbedRSDemo */;
+			target = A8D992A91D8676AD007B1636 /* uKeeper */;
 			targetProxy = A8D992BF1D8676AD007B1636 /* PBXContainerItemProxy */;
 		};
 		A8D992CB1D8676AD007B1636 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A8D992A91D8676AD007B1636 /* MbedRSDemo */;
+			target = A8D992A91D8676AD007B1636 /* uKeeper */;
 			targetProxy = A8D992CA1D8676AD007B1636 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -607,7 +607,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = uKeeper;
 			};
 			name = Debug;
 		};
@@ -621,7 +621,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = uKeeper;
 			};
 			name = Release;
 		};
@@ -633,8 +633,8 @@
 				INFOPLIST_FILE = MbedRSDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MbedRSDemo.app/MbedRSDemo";
+				PRODUCT_NAME = uKeeper;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uKeeper.app/uKeeper";
 			};
 			name = Debug;
 		};
@@ -646,8 +646,8 @@
 				INFOPLIST_FILE = MbedRSDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MbedRSDemo.app/MbedRSDemo";
+				PRODUCT_NAME = uKeeper;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uKeeper.app/uKeeper";
 			};
 			name = Release;
 		};
@@ -658,7 +658,7 @@
 				INFOPLIST_FILE = MbedRSDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = uKeeper;
 				TEST_TARGET_NAME = MbedRSDemo;
 			};
 			name = Debug;
@@ -670,7 +670,7 @@
 				INFOPLIST_FILE = MbedRSDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = uKeeper;
 				TEST_TARGET_NAME = MbedRSDemo;
 			};
 			name = Release;
@@ -678,7 +678,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A8D992A51D8676AD007B1636 /* Build configuration list for PBXProject "MbedRSDemo" */ = {
+		A8D992A51D8676AD007B1636 /* Build configuration list for PBXProject "uKeeper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8D992D01D8676AD007B1636 /* Debug */,
@@ -687,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8D992D21D8676AD007B1636 /* Build configuration list for PBXNativeTarget "MbedRSDemo" */ = {
+		A8D992D21D8676AD007B1636 /* Build configuration list for PBXNativeTarget "uKeeper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8D992D31D8676AD007B1636 /* Debug */,
@@ -696,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8D992D51D8676AD007B1636 /* Build configuration list for PBXNativeTarget "MbedRSDemoTests" */ = {
+		A8D992D51D8676AD007B1636 /* Build configuration list for PBXNativeTarget "uKeeperTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8D992D61D8676AD007B1636 /* Debug */,
@@ -705,7 +705,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8D992D81D8676AD007B1636 /* Build configuration list for PBXNativeTarget "MbedRSDemoUITests" */ = {
+		A8D992D81D8676AD007B1636 /* Build configuration list for PBXNativeTarget "uKeeperUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8D992D91D8676AD007B1636 /* Debug */,

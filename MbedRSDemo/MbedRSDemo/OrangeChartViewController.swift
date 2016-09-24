@@ -9,17 +9,18 @@
 import UIKit
 import Charts
 
-class OrangeChartViewController: UIViewController, ChartViewDelegate {
-    var time = ["05:00", "05:05", "05:10", "05:15", "05:20", "05:25", "05:30", "05:35", "05:40", "05:45"]
-    var values = [1.0, 2.0, 3.0, 4.0, 5.0, 6.5, 1.2, 8.1, 9.0, 10.0]
-    
+class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDelegate {
+    var time = ["N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"]
+    var values = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    var timer: NSTimer?
     var titleName: String?
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet weak var lineChart: LineChartView!
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel?.text = titleName
-        setupLineCharts(time, value: values)
+        setupLineCharts()
+        Mbedder.sharedInstance().delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -28,49 +29,37 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        self.timer?.invalidate()
+    }
+    
     func setCustomTitle(title: String) {
         self.titleName = title
     }
-    
-    internal func setupLineCharts(time: [String], value: [Double]){
+    //MARK: Charts functions
+    func setupLineCharts(){
         lineChart?.delegate = self
         lineChart?.descriptionText = titleName!
         lineChart?.noDataTextDescription = "No data coming in!"
         lineChart?.dragEnabled = true
-        lineChart?.setScaleEnabled(true)
+        lineChart?.setScaleEnabled(false)
         lineChart?.pinchZoomEnabled = true
         lineChart?.drawGridBackgroundEnabled = true
-        
-        let llXAxis: ChartLimitLine = ChartLimitLine(limit: 10.0, label: "Index 10")
-        llXAxis.lineWidth = 4.0
-        llXAxis.lineDashLengths = [(10.0), (10.0), (0.0)]
-        llXAxis.labelPosition = ChartLimitLine.LabelPosition.RightBottom
-        llXAxis.valueFont = UIFont.systemFontOfSize(10.0)
-        
-        lineChart?.xAxis.gridLineDashLengths = [(10.0), (10.0)]
-        lineChart?.xAxis.gridLineDashPhase = 0.0
-        
-        let leftAxis = lineChart?.leftAxis
-        leftAxis?.removeAllLimitLines()
-        leftAxis?.axisMaxValue = 15.0
-        leftAxis?.axisMinValue = 0.0
-        leftAxis?.gridLineDashLengths = [5.0, 5.0]
-        leftAxis?.drawZeroLineEnabled = false
-        leftAxis?.drawLimitLinesBehindDataEnabled = true
+        lineChart?.xAxis.gridLineWidth = 1.0
         
         lineChart?.legend.form = ChartLegend.Form.Line
-        let userInfo: [String: AnyObject] = ["time": time, "value": values]
-        let timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(OrangeChartViewController.setChartsTimer(_:)), userInfo: userInfo, repeats: true)
-        timer.fire()
+        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(OrangeChartViewController.setChartsTimer(_:)), userInfo: nil, repeats: true)
+        self.timer?.fire()
     }
     
-    internal func setChartsTimer(timer: NSTimer){
-        setCharts(time, values: values)
+    func setChartsTimer(timer: NSTimer){
+        mbedderGetNodeValue()
+        setCharts()
     }
     
-    internal func setCharts(dataPoints: [String], values: [Double]){
+    func setCharts(){
         var demoDataEntries: [ChartDataEntry] = []
-        for i in 0..<dataPoints.count {
+        for i in 0..<time.count {
             let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
             demoDataEntries.append(dataEntry)
         }
@@ -86,25 +75,63 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate {
         lineChartDataSet.valueFont = UIFont.systemFontOfSize(9.0)
         lineChartDataSet.lineDashLengths = [5.0, 5.0]
         lineChartDataSet.lineWidth = 1.0
-        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        let lineChartData = LineChartData(xVals: time, dataSet: lineChartDataSet)
         lineChart.data = lineChartData
-    
-        changeData()
     }
-    
-    internal func changeData(){
+    //MARK: random number
+    func changeData(string: String){
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.NSMinuteCalendarUnit, .NSSecondCalendarUnit], fromDate: date)
-        let currentTime = String(components.minute) + ":" + String(components.second)
+        let currentTime = String(format: "%02d", components.minute) + ":" + String(format: "%02d", components.second)
         print("Current Time: " + currentTime)
         time.removeFirst()
         time.append(currentTime)
         values.removeFirst()
-        let random = Double(arc4random_uniform(15) + 1)
-        values.append(random)
+        if string == "" {
+            let random = Double(arc4random_uniform(15) + 1)
+            values.append(random)
+            print("random: \(random)")
+        }else{
+            values.append(Double(string)!)
+        }
+    }
+    //MARK: Mbedder functions
+    func pollingData(){
+        print("polling Data:")
+        let mbedder = Mbedder.sharedInstance()
+        mbedder.delegate = self
+//        createLongPolling()
     }
 
+    //Mbedder delegate
+    func didReadNode(){
+        //not used here
+    }
+    
+    func didReadList() {
+        //not used here
+    }
+    
+    func mbedderGetNodeValue() {
+        print("mbedderGetNodeValue:")
+        switch self.titleName {
+        case "Temperature"?:
+            Mbedder.sharedInstance().getNodeValue("/3303/0/5700")
+            break
+        case "Humidity"?:
+            Mbedder.sharedInstance().getNodeValue("/3304/0/5700")
+            break
+        default:
+            break
+        }
+    }
+    
+    func returnPayload(payload: String) {
+        print("returnPayload:")
+        changeData(payload)
+    }
+    
     /*
     // MARK: - Navigation
 

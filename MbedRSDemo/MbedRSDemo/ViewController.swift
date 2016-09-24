@@ -29,7 +29,7 @@ class ViewController: UIViewController, MbedderDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    //Mbedder delegate
+    //MARK: Mbedder delegate
     func didReadNode(){
         self.view.showToast("Retrieve node information successfully", position: .Bottom, popTime: 3, dismissOnTap: false)
         mbedder.getNodesList()

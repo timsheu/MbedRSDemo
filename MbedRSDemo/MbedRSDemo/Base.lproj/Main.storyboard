@@ -10,7 +10,7 @@
         <!--Main Page-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Main Page" customClass="ViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Main Page" customClass="ViewController" customModule="uKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -96,7 +96,7 @@
         <!--Green Menu-->
         <scene sceneID="qmD-LE-bWN">
             <objects>
-                <viewController id="g8n-ok-F8M" userLabel="Green Menu" customClass="GreenViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g8n-ok-F8M" userLabel="Green Menu" customClass="GreenViewController" customModule="uKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pyd-jK-isz"/>
                         <viewControllerLayoutGuide type="bottom" id="ZKL-P4-h6B"/>
@@ -185,7 +185,7 @@
         <!--Green Setting-->
         <scene sceneID="8D2-UV-UzR">
             <objects>
-                <tableViewController id="84L-zG-OUk" userLabel="Green Setting" customClass="GreenSettingTableViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="84L-zG-OUk" userLabel="Green Setting" customClass="GreenSettingTableViewController" customModule="uKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oqw-aw-9BH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +254,7 @@
         <!--Orange Menu-->
         <scene sceneID="eD4-ms-CAn">
             <objects>
-                <viewController id="bhO-Ot-MnX" userLabel="Orange Menu" customClass="OrangeViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bhO-Ot-MnX" userLabel="Orange Menu" customClass="OrangeViewController" customModule="uKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qaw-QH-btY"/>
                         <viewControllerLayoutGuide type="bottom" id="b6U-Rm-r2p"/>
@@ -360,7 +360,7 @@
         <!--Orange Chart-->
         <scene sceneID="DVt-0T-dc4">
             <objects>
-                <viewController id="bu9-yh-uBg" userLabel="Orange Chart" customClass="OrangeChartViewController" customModule="MbedRSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bu9-yh-uBg" userLabel="Orange Chart" customClass="OrangeChartViewController" customModule="uKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ee-Kt-Z5k"/>
                         <viewControllerLayoutGuide type="bottom" id="iYI-Nr-JKO"/>

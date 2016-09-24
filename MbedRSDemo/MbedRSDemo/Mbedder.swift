@@ -10,10 +10,12 @@ import UIKit
 import RestEssentials
 import CocoaLumberjack
 
-protocol MbedderDelegate {
-    func didReadNode()
-    func didReadList()
+@objc protocol MbedderDelegate {
+    optional func didReadNode()
+    optional func didReadList()
+    optional func returnPayload(string: String)
 }
+
 class Mbedder: NSObject {
     //delegate
     var delegate: MbedderDelegate?
@@ -52,7 +54,7 @@ class Mbedder: NSObject {
                 let json = try result.value()
                 self.endName = json.jsonArray![0]?.jsonObject?["name"]?.stringValue
                 print("device name: " + self.endName!)
-                self.delegate?.didReadNode()
+                self.delegate?.didReadNode!()
             }catch{
                 print("Error performing GET \(error)")
             }
@@ -81,9 +83,9 @@ class Mbedder: NSObject {
                     let nodeElement = NodeElement(nodeName: sensorType, dataSerial: dataNumber, dataType: dataType, originData: element.jsonObject!)
                     self.endNodes.setValue(nodeElement, forKey: dataNumber)
                 }
-                self.delegate?.didReadList()
+                self.delegate?.didReadList!()
             }catch{
-                print("Error perfroming GET \(error)")
+                print("Error performing getlist GET \(error)")
             }
         }
     }
@@ -151,29 +153,58 @@ class Mbedder: NSObject {
         return (sensorType!, dataNumber, dataType!)
     }
     
-    internal func getNodeValue(dataNumber: String) -> (String, String) {
-        let listNodes = basicList + "/" + self.endName! + dataNumber
-        var payload: String = ""
-        var status: String = ""
+    internal func getNodeValue(dataNumber: String){
+        let listNodes = basicList + "/" + self.endName! + dataNumber + "/"
         
         guard let rest = RestController.createFromURLString(listNodes) else{
             print("Bad URL during init with value: " + listNodes)
-            return ("Bad", "URL")
+            return
         }
-        
+        openLongPolling()
         rest.get(nil, withOptions: self.option!){ result, httpResponse in
             do{
                 let json = try result.value()
-                let nodesArray = json.jsonArray!
-                for (index, element) in nodesArray.enumerate(){
-                    print("index: \(index), element: \(element.jsonObject?["id"]))")
-                    payload = (element.jsonObject?["payload"]?.stringValue)!
-                    status = (element.jsonObject?["status"]?.stringValue)!
-                }
+                print("response: \(json)")
             }catch{
-                print("Error perfroming GET \(error)")
+                print("Error performing getNodeValue GET \(error), httpResponse: \(httpResponse), result: \(result)")
             }
         }
-        return (payload, status)
+    }
+    
+    func openLongPolling(){
+        let listNodes = "https://api.connector.mbed.com/notification/pull"
+        
+        guard let rest = RestController.createFromURLString(listNodes) else{
+            print("Bad URL during init with value: " + listNodes)
+            return
+        }
+        
+        var localOption = RestOptions.init()
+        localOption.httpHeaders = ["Authorization": authKey, "Connection" : "keep-alive"]
+        rest.get(nil, withOptions: localOption){ result, httpResponse in
+            do{
+                let json = try result.value()
+                if let asyncJson = json.jsonObject!["async-responses"]{
+                    let jsonArray = asyncJson.jsonArray![0]
+                    if let base64String = jsonArray!["payload"]?.stringValue{
+                        let payload = self.base64StringToString(base64String)
+                        print("openLongPolling, payload: \(payload)")
+                        self.delegate?.returnPayload!(payload)
+                    }
+                }
+//                print("openLongPolling: \(json)")
+            }catch{
+                print("Error performing openLongPolling GET \(error), httpResponse: \(httpResponse), result: \(result)")
+            }
+        }
+    }
+    
+    //MARK: utility
+    func base64StringToString(string: String) -> String {
+        var result: String?
+        let decodedData = NSData(base64EncodedString: string, options: .IgnoreUnknownCharacters)
+        result = String(data: decodedData!, encoding: NSUTF8StringEncoding)
+
+        return result!
     }
 }

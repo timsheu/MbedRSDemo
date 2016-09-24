@@ -8,7 +8,6 @@ target 'MbedRSDemo' do
   pod 'Charts'
   pod 'CocoaLumberjack'
   pod 'EasyToast'
-  pod 'SwiftyBase64'
   # Pods for MbedRSDemo
 
   target 'MbedRSDemoTests' do

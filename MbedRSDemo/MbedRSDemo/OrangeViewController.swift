@@ -31,7 +31,7 @@ class OrangeViewController: UIViewController {
             targetTitleString = "Humidity"
             break
         case 22:
-            targetTitleString = "Lux"
+            targetTitleString = "Illuminance"
             break
         case 23:
             targetTitleString = "Activity"

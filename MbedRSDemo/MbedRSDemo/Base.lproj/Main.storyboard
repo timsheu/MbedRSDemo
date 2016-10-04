@@ -44,6 +44,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="2xm-Hf-0JJ"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="環境箱數據" backgroundImage="bannerOrange"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -60,6 +61,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="Mvx-fG-rw9"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="環境箱設定" backgroundImage="bannerGreen"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -87,7 +89,11 @@
                             <constraint firstItem="uXP-Ko-tlV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="aLz-M7-kwq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="7Ka-Ka-uS2"/>
+                    <navigationItem key="navigationItem" title="Nuvoton 微型溫室管家" id="7Ka-Ka-uS2"/>
+                    <connections>
+                        <outlet property="greenButton" destination="hhn-Gl-e0V" id="Pug-VA-SKV"/>
+                        <outlet property="orangeButton" destination="hKH-rY-Yxs" id="k3d-MQ-GXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,6 +136,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="Y1d-cZ-yOo"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="光照控制" backgroundImage="bannerGreen"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -146,6 +153,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="RLN-dW-c50"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="遠端餵食" backgroundImage="bannerGreen"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -173,7 +181,7 @@
                             <constraint firstItem="36v-nh-eAj" firstAttribute="centerX" secondItem="3ui-jj-f8t" secondAttribute="centerX" id="Sj4-3R-Kur"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="qzx-lF-1zw"/>
+                    <navigationItem key="navigationItem" id="qzx-lF-1zw"/>
                     <connections>
                         <segue destination="84L-zG-OUk" kind="show" identifier="GreenSegue" id="f88-eH-G4t"/>
                     </connections>
@@ -205,14 +213,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="YIv-YE-vmR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="YIv-YE-vmR">
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YIv-YE-vmR" id="HoE-Fn-M45">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ti2-EL-Sxp">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ti2-EL-Sxp">
                                             <rect key="frame" x="8" y="11" width="284" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -220,9 +228,16 @@
                                         </label>
                                         <switch opaque="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8v-cc-RBq">
                                             <rect key="frame" x="417.5" y="6" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="turnOnOff" destination="84L-zG-OUk" eventType="touchUpInside" id="b2y-iT-rdB"/>
+                                            </connections>
                                         </switch>
                                         <slider opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TgB-3Y-ToX">
                                             <rect key="frame" x="298" y="7" width="288" height="31"/>
+                                            <connections>
+                                                <action selector="sliderChanged:" destination="84L-zG-OUk" eventType="touchUpInside" id="ILa-1d-xI6"/>
+                                                <action selector="sliderChanging:" destination="84L-zG-OUk" eventType="valueChanged" id="k5C-f0-CcS"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                     <constraints>
@@ -288,6 +303,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="xhC-2n-zM5"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="濕度" backgroundImage="bannerOrange"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -304,6 +320,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="meu-La-6op"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="照度" backgroundImage="bannerOrange"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -320,6 +337,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="z8A-qy-V3x"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="活動" backgroundImage="bannerOrange"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -348,7 +366,7 @@
                             <constraint firstItem="Mm8-DP-6uB" firstAttribute="centerX" secondItem="FxC-uz-hB9" secondAttribute="centerX" id="un7-4d-HrJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Nuvoton IoT 環境控制箱" id="u7M-hQ-vUq"/>
+                    <navigationItem key="navigationItem" id="u7M-hQ-vUq"/>
                     <connections>
                         <segue destination="bu9-yh-uBg" kind="show" identifier="OrangeSegue" id="ESS-S6-Yuc"/>
                     </connections>

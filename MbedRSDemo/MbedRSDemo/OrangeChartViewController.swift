@@ -10,6 +10,7 @@ import UIKit
 import Charts
 
 class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDelegate {
+    let TAG = "OrangeChartVC: "
     var time = ["N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"]
     var values = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     var timer: NSTimer?
@@ -40,7 +41,7 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
     func setupLineCharts(){
         lineChart?.delegate = self
         lineChart?.descriptionText = titleName!
-        lineChart?.noDataTextDescription = "No data coming in!"
+        lineChart?.noDataTextDescription = "Data coming in, please wait!"
         lineChart?.dragEnabled = true
         lineChart?.setScaleEnabled(false)
         lineChart?.pinchZoomEnabled = true
@@ -54,7 +55,6 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
     
     func setChartsTimer(timer: NSTimer){
         mbedderGetNodeValue()
-        setCharts()
     }
     
     func setCharts(){
@@ -84,24 +84,27 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.NSMinuteCalendarUnit, .NSSecondCalendarUnit], fromDate: date)
         let currentTime = String(format: "%02d", components.minute) + ":" + String(format: "%02d", components.second)
-        print("Current Time: " + currentTime)
+        print("\(TAG)Current Time: " + currentTime)
         time.removeFirst()
         time.append(currentTime)
         values.removeFirst()
         if string == "" {
             let random = Double(arc4random_uniform(15) + 1)
             values.append(random)
-            print("random: \(random)")
+            print("\(TAG)random: \(random)")
         }else{
             values.append(Double(string)!)
         }
+        dispatch_async(dispatch_get_main_queue(), {
+            self.setCharts()
+        })
     }
+    
     //MARK: Mbedder functions
     func pollingData(){
-        print("polling Data:")
+        print("\(TAG)polling Data:")
         let mbedder = Mbedder.sharedInstance()
         mbedder.delegate = self
-//        createLongPolling()
     }
 
     //Mbedder delegate
@@ -113,8 +116,16 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         //not used here
     }
     
+    func didPUTthenPOST(resource: String) {
+        //not used here
+    }
+    
+    func didUpdatedValue(string: String, resource: String) {
+        //not used here
+    }
+    
     func mbedderGetNodeValue() {
-        print("mbedderGetNodeValue:")
+        print("\(TAG)mbedderGetNodeValue:")
         switch self.titleName {
         case "Temperature"?:
             Mbedder.sharedInstance().getNodeValue("/3303/0/5700")
@@ -122,14 +133,28 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         case "Humidity"?:
             Mbedder.sharedInstance().getNodeValue("/3304/0/5700")
             break
+        case "Illuminance"?:
+            Mbedder.sharedInstance().getNodeValue("/3301/0/5700")
+            break
+        case "Activity"?:
+            Mbedder.sharedInstance().getNodeValue("/3302/0/5500")
+            break
         default:
             break
         }
     }
     
-    func returnPayload(payload: String) {
-        print("returnPayload:")
-        changeData(payload)
+    func returnPayload(string: String, resource: String) {
+        print("\(TAG)returnPayload:")
+        changeData(string)
+    }
+    
+    func returnStatus(string: String, resource: String) {
+        print("\(TAG)returnStatus: \(string)")
+    }
+    
+    func notReadingEnd() {
+        //not used here
     }
     
     /*

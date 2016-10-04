@@ -10,13 +10,18 @@ import UIKit
 import RestEssentials
 import CocoaLumberjack
 
-@objc protocol MbedderDelegate {
-    optional func didReadNode()
-    optional func didReadList()
-    optional func returnPayload(string: String)
+protocol MbedderDelegate {
+    func notReadingEnd()
+    func didReadNode()
+    func didReadList()
+    func returnPayload(value: String, resource: String)
+    func returnStatus(status: String, resource: String)
+    func didPUTthenPOST(resource: String)
+    func didUpdatedValue(value: String, resource: String)
 }
 
 class Mbedder: NSObject {
+    let TAG = "Mbedder: "
     //delegate
     var delegate: MbedderDelegate?
     var dateSource: MbedderDelegate?
@@ -45,7 +50,7 @@ class Mbedder: NSObject {
     //mbed control functions
     internal func getEndName(){
         guard let rest = RestController.createFromURLString(basicList) else{
-            print("Bad URL during init with value: " + basicList)
+            print("\(TAG)Bad URL during init with value: " + basicList)
             return
         }
         
@@ -53,10 +58,14 @@ class Mbedder: NSObject {
             do{
                 let json = try result.value()
                 self.endName = json.jsonArray![0]?.jsonObject?["name"]?.stringValue
-                print("device name: " + self.endName!)
-                self.delegate?.didReadNode!()
+                if self.endName != nil {
+                    print("\(self.TAG)device name: " + self.endName!)
+                    self.delegate?.didReadNode()
+                }else{
+                    
+                }
             }catch{
-                print("Error performing GET \(error)")
+                print("\(self.TAG)Error performing GET \(error)")
             }
         }
     }
@@ -65,7 +74,7 @@ class Mbedder: NSObject {
         let listNodes = basicList + "/" + self.endName!
         
         guard let rest = RestController.createFromURLString(listNodes) else{
-            print("Bad URL during init with value: " + listNodes)
+            print("\(TAG)Bad URL during init with value: " + listNodes)
             return
         }
         
@@ -74,7 +83,7 @@ class Mbedder: NSObject {
                 let json = try result.value()
                 let nodesArray = json.jsonArray!
                 for (index, element) in nodesArray.enumerate(){
-                    print("index: \(index), element: \(element.jsonObject?["uri"]))")
+                    print("\(self.TAG)index: \(index), element: \(element.jsonObject?["uri"]))")
                     let uri = element.jsonObject?["uri"]?.stringValue
                     let (sensorType, dataNumber, dataType) = self.resolveNameFromURI(uri!)
                     if sensorType == "" || dataNumber == "" || dataType == ""{
@@ -83,9 +92,9 @@ class Mbedder: NSObject {
                     let nodeElement = NodeElement(nodeName: sensorType, dataSerial: dataNumber, dataType: dataType, originData: element.jsonObject!)
                     self.endNodes.setValue(nodeElement, forKey: dataNumber)
                 }
-                self.delegate?.didReadList!()
+                self.delegate?.didReadList()
             }catch{
-                print("Error performing getlist GET \(error)")
+                print("\(self.TAG)Error performing getlist GET \(error)")
             }
         }
     }
@@ -118,7 +127,7 @@ class Mbedder: NSObject {
             sensorType = "LWM2MID_DIGI_IN"
             break;
         default:
-            print("resolve name: default")
+            print("\(TAG)resolve name: default")
             sensorType = "NONE"
             break;
         }
@@ -154,28 +163,28 @@ class Mbedder: NSObject {
     }
     
     internal func getNodeValue(dataNumber: String){
+        openLongPolling("")
         let listNodes = basicList + "/" + self.endName! + dataNumber + "/"
-        
+        print("\(TAG)getNodeValue: " + listNodes)
         guard let rest = RestController.createFromURLString(listNodes) else{
-            print("Bad URL during init with value: " + listNodes)
+            print("\(TAG)Bad URL during init with value: " + listNodes)
             return
         }
-        openLongPolling()
         rest.get(nil, withOptions: self.option!){ result, httpResponse in
             do{
                 let json = try result.value()
-                print("response: \(json)")
+                print("\(self.TAG)response: \(json)")
             }catch{
-                print("Error performing getNodeValue GET \(error), httpResponse: \(httpResponse), result: \(result)")
+                print("\(self.TAG)Error performing getNodeValue GET \(error), httpResponse: \(httpResponse), result: \(result)")
             }
         }
     }
     
-    func openLongPolling(){
+    func openLongPolling(resource: String){
         let listNodes = "https://api.connector.mbed.com/notification/pull"
         
         guard let rest = RestController.createFromURLString(listNodes) else{
-            print("Bad URL during init with value: " + listNodes)
+            print("\(TAG)Bad URL during init with value: " + listNodes)
             return
         }
         
@@ -184,20 +193,97 @@ class Mbedder: NSObject {
         rest.get(nil, withOptions: localOption){ result, httpResponse in
             do{
                 let json = try result.value()
+//                print("\(self.TAG)openLongPolling: json: \(json)")
                 if let asyncJson = json.jsonObject!["async-responses"]{
-                    let jsonArray = asyncJson.jsonArray![0]
-                    if let base64String = jsonArray!["payload"]?.stringValue{
-                        let payload = self.base64StringToString(base64String)
-                        print("openLongPolling, payload: \(payload)")
-                        self.delegate?.returnPayload!(payload)
+                    if let jsonArray = asyncJson.jsonArray![0]{
+                        print("\(self.TAG)openLongPolling: json: \(jsonArray)")
+                        if let base64String = jsonArray["payload"]?.stringValue{
+                            let payload = self.base64StringToString(base64String)
+                            print("\(self.TAG)openLongPolling, base64: \(base64String) payload: \(payload)")
+                            self.delegate?.returnPayload(payload, resource: resource)
+                        }
+                        if let statusString = jsonArray["status"]?.stringValue{
+                            print("\(self.TAG)openLongPolling, status: \(statusString)")
+                            self.delegate?.returnStatus(statusString, resource: resource)
+                        }
+                    }else if let jsonValue = asyncJson.jsonObject{
+                        print("\(self.TAG)jsonValue: \(jsonValue)")
                     }
+                    
                 }
-//                print("openLongPolling: \(json)")
             }catch{
-                print("Error performing openLongPolling GET \(error), httpResponse: \(httpResponse), result: \(result)")
+                print("\(self.TAG)Error performing openLongPolling GET \(error), httpResponse: \(httpResponse), result: \(result)")
+                print("%@", LWM2MID_DIGI_OUT)
             }
         }
     }
+    
+    func setResourcePUT(resource: String, value: String){
+        let PUTNodes = basicList + "/" + self.endName! + resource
+        print("\(TAG)PUTNodes: \(PUTNodes)")
+        guard let rest = RestController.createFromURLString(PUTNodes) else{
+            print("\(TAG)Bad URL during init with value: " + PUTNodes)
+            return
+        }
+        
+        var localOption = RestOptions.init()
+        localOption.httpHeaders = ["Authorization": authKey]
+        let data = 	value.dataUsingEncoding(NSUTF8StringEncoding)
+        rest.put(nil, withData: data!, withOptions: localOption){ result, httpResponse in
+            do{
+                let json = try result.value()
+                if let id = json.jsonObject!["async-response-id"]{
+                    print("\(self.TAG)PUT: \(id)")
+                    self.delegate?.didPUTthenPOST(resource)
+                }
+                
+            }catch{
+                print("\(self.TAG)Error performing PUT \(error)")
+            }
+        }
+    }
+    
+    func setResourcePOST(resource: String, value: String){
+        let listNodes = basicList + "/" + self.endName! + resource
+        
+        guard let rest = RestController.createFromURLString(listNodes) else{
+            print("\(TAG)Bad URL during init with value: " + listNodes)
+            return
+        }
+        let data = 	value.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        rest.post(nil, withNSData: data!, withOptions: self.option!){ result, httpResponse in
+            do{
+                let json = try result.value()
+                if let id = json.jsonObject!["async-response-id"]{
+                    print("\(self.TAG)POST: id:\(id)")
+                    
+                }
+            }catch{
+                print("\(self.TAG)Error performing POST \(error)")
+            }
+        }
+    }
+    
+    func updateGreenStatus(resource: String){
+        let listNodes = basicList + "/" + self.endName! + resource + "/"
+            print("\(TAG)updateGreenStatus: " + listNodes)
+        guard let rest = RestController.createFromURLString(listNodes) else{
+            print("\(TAG)Bad URL during init with value: " + listNodes)
+            return
+        }
+        
+        rest.get(nil, withOptions: self.option!){ result, httpResponse in
+            do{
+                let json = try result.value()
+                print("\(self.TAG)updateGreenStatus: \(json)")
+            }catch{
+                print("\(self.TAG)Error performing updateGreenStatus \(error)")
+            }
+        }
+    }
+    
+    
     
     //MARK: utility
     func base64StringToString(string: String) -> String {

@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71EC1FF121EEB10CF5479781 /* Pods_MbedRSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518F92828327B2DF24C21F8C /* Pods_MbedRSDemo.framework */; };
+		969DDE56E6E80B39250659C2 /* Pods_uKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FB3F72CB50A8491A1D4A62 /* Pods_uKeeper.framework */; };
+		A18C75686B80A17059591094 /* Pods_uKeeperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348454DD68A4BE4E8F967895 /* Pods_uKeeperUITests.framework */; };
 		A810EAA91D878C7D007752C2 /* Mbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAA81D878C7D007752C2 /* Mbedder.swift */; };
 		A810EAAB1D87C9F9007752C2 /* lwm2m_id.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAA1D87C9F9007752C2 /* lwm2m_id.swift */; };
 		A810EAAD1D88021F007752C2 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAC1D88021F007752C2 /* OrangeViewController.swift */; };
 		A810EAAF1D880274007752C2 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAAE1D880274007752C2 /* GreenViewController.swift */; };
 		A810EAB11D880292007752C2 /* OrangeChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAB01D880292007752C2 /* OrangeChartViewController.swift */; };
 		A810EAB31D8802B1007752C2 /* GreenSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */; };
+		A845C40F1DA26FB900880753 /* RestEssentials.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8B1C8601D9E0461000F345D /* RestEssentials.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A845C4141DA2713900880753 /* RestEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B1C8601D9E0461000F345D /* RestEssentials.framework */; };
+		A845C4161DA2747900880753 /* Pods_uKeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A845C4151DA2747900880753 /* Pods_uKeeperTests.framework */; };
 		A85797271D8FCE8A005874F5 /* NodeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85797261D8FCE8A005874F5 /* NodeElement.swift */; };
 		A8D992AE1D8676AD007B1636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AD1D8676AD007B1636 /* AppDelegate.swift */; };
 		A8D992B01D8676AD007B1636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AF1D8676AD007B1636 /* ViewController.swift */; };
@@ -22,11 +26,40 @@
 		A8D992B81D8676AD007B1636 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D992B61D8676AD007B1636 /* LaunchScreen.storyboard */; };
 		A8D992C31D8676AD007B1636 /* MbedRSDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992C21D8676AD007B1636 /* MbedRSDemoTests.swift */; };
 		A8D992CE1D8676AD007B1636 /* MbedRSDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992CD1D8676AD007B1636 /* MbedRSDemoUITests.swift */; };
+		B0E4FC43CA38018B3DE195B2 /* Pods_uKeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10737E3387D4D085067D6E1 /* Pods_uKeeperTests.framework */; };
 		BA1123551D92C852417A650D /* Pods_MbedRSDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7836C7FF0A18CF5519BAB8BD /* Pods_MbedRSDemoUITests.framework */; };
 		E1FADAC9410F310D92636DF4 /* Pods_MbedRSDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60592A45DF610055B46B3A2D /* Pods_MbedRSDemoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A845C40C1DA26F4E00880753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E06E5C5F1B6A3AD3007EA8B8;
+			remoteInfo = RestEssentials;
+		};
+		A845C4101DA26FB900880753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E06E5C5F1B6A3AD3007EA8B8;
+			remoteInfo = RestEssentials;
+		};
+		A8B1C85F1D9E0461000F345D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E06E5C601B6A3AD3007EA8B8;
+			remoteInfo = RestEssentials;
+		};
+		A8B1C8611D9E0461000F345D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E06E5C6A1B6A3AD3007EA8B8;
+			remoteInfo = RestEssentialsTests;
+		};
 		A8D992BF1D8676AD007B1636 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A8D992A21D8676AD007B1636 /* Project object */;
@@ -43,19 +76,43 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A845C4121DA26FB900880753 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A845C40F1DA26FB900880753 /* RestEssentials.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		06E6A01F4D395711794FFED6 /* Pods-uKeeperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uKeeperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-uKeeperTests/Pods-uKeeperTests.release.xcconfig"; sourceTree = "<group>"; };
+		086CB26000A13A2EDBA5ACDB /* Pods-uKeeperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uKeeperUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-uKeeperUITests/Pods-uKeeperUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0C8A8ECA5C722024E07F9241 /* Pods-MbedRSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemo/Pods-MbedRSDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2B1B11A1117AECE0387DAE9C /* Pods-uKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uKeeper/Pods-uKeeper.debug.xcconfig"; sourceTree = "<group>"; };
+		348454DD68A4BE4E8F967895 /* Pods_uKeeperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uKeeperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		480FC7E8268535B12CF63B48 /* Pods-uKeeperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uKeeperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uKeeperTests/Pods-uKeeperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518F92828327B2DF24C21F8C /* Pods_MbedRSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MbedRSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60592A45DF610055B46B3A2D /* Pods_MbedRSDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MbedRSDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7836C7FF0A18CF5519BAB8BD /* Pods_MbedRSDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MbedRSDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F3E7A5DA5B13304108E0C7 /* Pods-MbedRSDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A10737E3387D4D085067D6E1 /* Pods_uKeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uKeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A810EAA81D878C7D007752C2 /* Mbedder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mbedder.swift; sourceTree = "<group>"; };
 		A810EAAA1D87C9F9007752C2 /* lwm2m_id.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lwm2m_id.swift; sourceTree = "<group>"; };
 		A810EAAC1D88021F007752C2 /* OrangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
 		A810EAAE1D880274007752C2 /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		A810EAB01D880292007752C2 /* OrangeChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeChartViewController.swift; sourceTree = "<group>"; };
 		A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenSettingTableViewController.swift; sourceTree = "<group>"; };
+		A845C4151DA2747900880753 /* Pods_uKeeperTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_uKeeperTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_uKeeperTests.framework"; sourceTree = "<group>"; };
 		A85797261D8FCE8A005874F5 /* NodeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElement.swift; sourceTree = "<group>"; };
+		A8B1C8461D9CEB70000F345D /* uKeeper-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uKeeper-Bridging-Header.h"; sourceTree = "<group>"; };
+		A8B1C8471D9CEBA1000F345D /* lwm2m_id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwm2m_id.h; sourceTree = "<group>"; };
+		A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestEssentials.xcodeproj; path = ../RestEssentials/RestEssentials.xcodeproj; sourceTree = "<group>"; };
 		A8D992AA1D8676AD007B1636 /* uKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D992AD1D8676AD007B1636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D992AF1D8676AD007B1636 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,8 +128,11 @@
 		A8D992CF1D8676AD007B1636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C380E16D6AA4AC055F9697BB /* Pods-MbedRSDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB4F6B727A63671571C58AFE /* Pods-MbedRSDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoUITests/Pods-MbedRSDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DA9F2A7FA39B3093F64AAEA7 /* Pods-uKeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uKeeperUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uKeeperUITests/Pods-uKeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFE6AD7DEB8E4009AC86F12 /* Pods-MbedRSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemo/Pods-MbedRSDemo.release.xcconfig"; sourceTree = "<group>"; };
 		EC415376ABDE65F3FA2A5D24 /* Pods-MbedRSDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbedRSDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MbedRSDemoUITests/Pods-MbedRSDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EFD63DC62C0441CE5621898C /* Pods-uKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-uKeeper/Pods-uKeeper.release.xcconfig"; sourceTree = "<group>"; };
+		F4FB3F72CB50A8491A1D4A62 /* Pods_uKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +140,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71EC1FF121EEB10CF5479781 /* Pods_MbedRSDemo.framework in Frameworks */,
+				A845C4161DA2747900880753 /* Pods_uKeeperTests.framework in Frameworks */,
+				969DDE56E6E80B39250659C2 /* Pods_uKeeper.framework in Frameworks */,
+				A845C4141DA2713900880753 /* RestEssentials.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1FADAC9410F310D92636DF4 /* Pods_MbedRSDemoTests.framework in Frameworks */,
+				B0E4FC43CA38018B3DE195B2 /* Pods_uKeeperTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1123551D92C852417A650D /* Pods_MbedRSDemoUITests.framework in Frameworks */,
+				A18C75686B80A17059591094 /* Pods_uKeeperUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +176,12 @@
 				C380E16D6AA4AC055F9697BB /* Pods-MbedRSDemoTests.release.xcconfig */,
 				EC415376ABDE65F3FA2A5D24 /* Pods-MbedRSDemoUITests.debug.xcconfig */,
 				CB4F6B727A63671571C58AFE /* Pods-MbedRSDemoUITests.release.xcconfig */,
+				2B1B11A1117AECE0387DAE9C /* Pods-uKeeper.debug.xcconfig */,
+				EFD63DC62C0441CE5621898C /* Pods-uKeeper.release.xcconfig */,
+				480FC7E8268535B12CF63B48 /* Pods-uKeeperTests.debug.xcconfig */,
+				06E6A01F4D395711794FFED6 /* Pods-uKeeperTests.release.xcconfig */,
+				DA9F2A7FA39B3093F64AAEA7 /* Pods-uKeeperUITests.debug.xcconfig */,
+				086CB26000A13A2EDBA5ACDB /* Pods-uKeeperUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -119,16 +189,30 @@
 		6AF0966F62744B5B62FBEF4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A845C4151DA2747900880753 /* Pods_uKeeperTests.framework */,
 				518F92828327B2DF24C21F8C /* Pods_MbedRSDemo.framework */,
 				60592A45DF610055B46B3A2D /* Pods_MbedRSDemoTests.framework */,
 				7836C7FF0A18CF5519BAB8BD /* Pods_MbedRSDemoUITests.framework */,
+				F4FB3F72CB50A8491A1D4A62 /* Pods_uKeeper.framework */,
+				A10737E3387D4D085067D6E1 /* Pods_uKeeperTests.framework */,
+				348454DD68A4BE4E8F967895 /* Pods_uKeeperUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8B1C85B1D9E0460000F345D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8B1C8601D9E0461000F345D /* RestEssentials.framework */,
+				A8B1C8621D9E0461000F345D /* RestEssentialsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A8D992A11D8676AD007B1636 = {
 			isa = PBXGroup;
 			children = (
+				A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */,
 				A8D992AC1D8676AD007B1636 /* MbedRSDemo */,
 				A8D992C11D8676AD007B1636 /* MbedRSDemoTests */,
 				A8D992CC1D8676AD007B1636 /* MbedRSDemoUITests */,
@@ -151,6 +235,7 @@
 		A8D992AC1D8676AD007B1636 /* MbedRSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A8B1C8471D9CEBA1000F345D /* lwm2m_id.h */,
 				A8D992AD1D8676AD007B1636 /* AppDelegate.swift */,
 				A8D992AF1D8676AD007B1636 /* ViewController.swift */,
 				A8D992B91D8676AD007B1636 /* Info.plist */,
@@ -164,6 +249,7 @@
 				A810EAAE1D880274007752C2 /* GreenViewController.swift */,
 				A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */,
 				A85797261D8FCE8A005874F5 /* NodeElement.swift */,
+				A8B1C8461D9CEB70000F345D /* uKeeper-Bridging-Header.h */,
 			);
 			path = MbedRSDemo;
 			sourceTree = "<group>";
@@ -199,10 +285,13 @@
 				A8D992A81D8676AD007B1636 /* Resources */,
 				953187428E24F157BF755E2D /* [CP] Embed Pods Frameworks */,
 				4EBF123390786BAC7FCD9ADC /* [CP] Copy Pods Resources */,
+				A845C4121DA26FB900880753 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A845C40D1DA26F4E00880753 /* PBXTargetDependency */,
+				A845C4111DA26FB900880753 /* PBXTargetDependency */,
 			);
 			name = uKeeper;
 			productName = MbedRSDemo;
@@ -285,6 +374,12 @@
 			mainGroup = A8D992A11D8676AD007B1636;
 			productRefGroup = A8D992AB1D8676AD007B1636 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A8B1C85B1D9E0460000F345D /* Products */;
+					ProjectRef = A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A8D992A91D8676AD007B1636 /* uKeeper */,
@@ -293,6 +388,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A8B1C8601D9E0461000F345D /* RestEssentials.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestEssentials.framework;
+			remoteRef = A8B1C85F1D9E0461000F345D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A8B1C8621D9E0461000F345D /* RestEssentialsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestEssentialsTests.xctest;
+			remoteRef = A8B1C8611D9E0461000F345D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A8D992A81D8676AD007B1636 /* Resources */ = {
@@ -334,7 +446,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MbedRSDemoUITests/Pods-MbedRSDemoUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uKeeperUITests/Pods-uKeeperUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4EBF123390786BAC7FCD9ADC /* [CP] Copy Pods Resources */ = {
@@ -349,7 +461,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MbedRSDemo/Pods-MbedRSDemo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uKeeper/Pods-uKeeper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		54A804EA0DE22BE6D328996C /* [CP] Copy Pods Resources */ = {
@@ -364,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uKeeperTests/Pods-uKeeperTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		735D442F7F1726168D71F9A0 /* [CP] Check Pods Manifest.lock */ = {
@@ -409,7 +521,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MbedRSDemo/Pods-MbedRSDemo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uKeeper/Pods-uKeeper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B196635B17A43CE31E910A80 /* [CP] Check Pods Manifest.lock */ = {
@@ -439,7 +551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MbedRSDemoTests/Pods-MbedRSDemoTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uKeeperTests/Pods-uKeeperTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -480,6 +592,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A845C40D1DA26F4E00880753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestEssentials;
+			targetProxy = A845C40C1DA26F4E00880753 /* PBXContainerItemProxy */;
+		};
+		A845C4111DA26FB900880753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestEssentials;
+			targetProxy = A845C4101DA26FB900880753 /* PBXContainerItemProxy */;
+		};
 		A8D992C01D8676AD007B1636 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A8D992A91D8676AD007B1636 /* uKeeper */;
@@ -599,35 +721,47 @@
 		};
 		A8D992D31D8676AD007B1636 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C8A8ECA5C722024E07F9241 /* Pods-MbedRSDemo.debug.xcconfig */;
+			baseConfigurationReference = 2B1B11A1117AECE0387DAE9C /* Pods-uKeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = MbedRSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.mbeddemo;
 				PRODUCT_NAME = uKeeper;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cchsu20/Documents/Road show mbed demo/MbedRSDemo/MbedRSDemo/MbedRSDemo/uKeeper-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		A8D992D41D8676AD007B1636 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEFE6AD7DEB8E4009AC86F12 /* Pods-MbedRSDemo.release.xcconfig */;
+			baseConfigurationReference = EFD63DC62C0441CE5621898C /* Pods-uKeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = MbedRSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.MbedRSDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.mbeddemo;
 				PRODUCT_NAME = uKeeper;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cchsu20/Documents/Road show mbed demo/MbedRSDemo/MbedRSDemo/MbedRSDemo/uKeeper-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		A8D992D61D8676AD007B1636 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81F3E7A5DA5B13304108E0C7 /* Pods-MbedRSDemoTests.debug.xcconfig */;
+			baseConfigurationReference = 480FC7E8268535B12CF63B48 /* Pods-uKeeperTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MbedRSDemoTests/Info.plist;
@@ -640,7 +774,7 @@
 		};
 		A8D992D71D8676AD007B1636 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C380E16D6AA4AC055F9697BB /* Pods-MbedRSDemoTests.release.xcconfig */;
+			baseConfigurationReference = 06E6A01F4D395711794FFED6 /* Pods-uKeeperTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MbedRSDemoTests/Info.plist;
@@ -653,7 +787,7 @@
 		};
 		A8D992D91D8676AD007B1636 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC415376ABDE65F3FA2A5D24 /* Pods-MbedRSDemoUITests.debug.xcconfig */;
+			baseConfigurationReference = DA9F2A7FA39B3093F64AAEA7 /* Pods-uKeeperUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MbedRSDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -665,7 +799,7 @@
 		};
 		A8D992DA1D8676AD007B1636 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB4F6B727A63671571C58AFE /* Pods-MbedRSDemoUITests.release.xcconfig */;
+			baseConfigurationReference = 086CB26000A13A2EDBA5ACDB /* Pods-uKeeperUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MbedRSDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

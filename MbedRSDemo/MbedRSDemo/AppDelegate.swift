@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.addLogger(fileLogger)
         
+        
         // Override point for customization after application launch.
         return true
     }

@@ -15,6 +15,8 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
     var values = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     var timer: NSTimer?
     var titleName: String?
+    var resourceString = "/3303/0/5700"
+    var count = 0
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet weak var lineChart: LineChartView!
     override func viewDidLoad() {
@@ -22,6 +24,7 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         titleLabel?.text = titleName
         setupLineCharts()
         Mbedder.sharedInstance().delegate = self
+        Mbedder.sharedInstance().openLongPolling("")
         // Do any additional setup after loading the view.
     }
 
@@ -128,25 +131,26 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         print("\(TAG)mbedderGetNodeValue:")
         switch self.titleName {
         case "Temperature"?:
-            Mbedder.sharedInstance().getNodeValue("/3303/0/5700")
+            resourceString = "/3303/0/5700"
             break
         case "Humidity"?:
-            Mbedder.sharedInstance().getNodeValue("/3304/0/5700")
+            resourceString = "/3304/0/5700"
             break
         case "Illuminance"?:
-            Mbedder.sharedInstance().getNodeValue("/3301/0/5700")
+            resourceString = "/3301/0/5700"
             break
         case "Activity"?:
-            Mbedder.sharedInstance().getNodeValue("/3302/0/5500")
+            resourceString = "/3302/0/5500"
             break
         default:
+            resourceString = "/3303/0/5700"
             break
         }
+        Mbedder.sharedInstance().getNodeValue(self.resourceString)
     }
     
     func returnPayload(string: String, resource: String) {
         print("\(TAG)returnPayload:")
-        changeData(string)
     }
     
     func returnStatus(string: String, resource: String) {
@@ -155,6 +159,28 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
     
     func notReadingEnd() {
         //not used here
+    }
+    
+    func returnNotificationaFromServer(content: NSDictionary) {
+        print("\(TAG)returnNotificationaFromServer:")
+        if let asyncResponse = content["async-response"] {
+            if asyncResponse["id"] as! String == resourceString{
+                let payload = asyncResponse["payload"] as! String
+                print("\(TAG) id: \(resourceString), payload: \(payload)")
+                changeData(payload)
+                count = 0
+            }
+        }
+        if let regUpdates = content["reg-updates"] {
+            print("\(TAG) reg-updates")
+        }
+        count += 1
+        dispatch_async(dispatch_get_main_queue(), {
+
+            if self.count == 5{
+                self.view.showToast("連線困難，持續嘗試中", position: .Bottom, popTime: 5, dismissOnTap: true)
+            }
+        })
     }
     
     /*

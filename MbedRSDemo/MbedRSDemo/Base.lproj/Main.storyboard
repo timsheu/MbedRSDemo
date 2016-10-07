@@ -80,6 +80,35 @@
                                     <constraint firstItem="GQ6-fS-gRH" firstAttribute="width" secondItem="uXP-Ko-tlV" secondAttribute="width" multiplier="0.75" id="WxD-KX-nHy"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iod-uN-mDW">
+                                <rect key="frame" x="75" y="518" width="450" height="40"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KBz-y0-5FY">
+                                        <rect key="frame" x="276" y="6" width="123" height="29"/>
+                                        <segments>
+                                            <segment title="Tim"/>
+                                            <segment title="Morgan"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segment:" destination="BYZ-38-t0r" eventType="valueChanged" id="RI9-AF-gTt"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Owner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoT-F5-rrt">
+                                        <rect key="frame" x="71" y="9" width="83" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GoT-F5-rrt" firstAttribute="centerY" secondItem="Iod-uN-mDW" secondAttribute="centerY" id="BXS-eg-pDz"/>
+                                    <constraint firstAttribute="height" constant="40" id="S5M-k0-YsB"/>
+                                    <constraint firstItem="KBz-y0-5FY" firstAttribute="centerY" secondItem="Iod-uN-mDW" secondAttribute="centerY" id="ZRf-Aj-egi"/>
+                                    <constraint firstItem="KBz-y0-5FY" firstAttribute="centerX" secondItem="Iod-uN-mDW" secondAttribute="centerX" multiplier="1.5" id="mBx-sX-nO6"/>
+                                    <constraint firstItem="GoT-F5-rrt" firstAttribute="centerX" secondItem="Iod-uN-mDW" secondAttribute="centerX" multiplier="0.5" id="tdG-qf-cEK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -87,12 +116,16 @@
                             <constraint firstItem="uXP-Ko-tlV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Txa-B0-J8L"/>
                             <constraint firstItem="uXP-Ko-tlV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="XRl-4r-6P2"/>
                             <constraint firstItem="uXP-Ko-tlV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="aLz-M7-kwq"/>
+                            <constraint firstItem="Iod-uN-mDW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fca-10-0Bi"/>
+                            <constraint firstItem="Iod-uN-mDW" firstAttribute="width" secondItem="uXP-Ko-tlV" secondAttribute="width" id="wRJ-gg-qCx"/>
+                            <constraint firstItem="Iod-uN-mDW" firstAttribute="top" secondItem="uXP-Ko-tlV" secondAttribute="bottom" constant="8" id="wXl-Ko-rvC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nuvoton 微型溫室管家" id="7Ka-Ka-uS2"/>
                     <connections>
                         <outlet property="greenButton" destination="hhn-Gl-e0V" id="Pug-VA-SKV"/>
                         <outlet property="orangeButton" destination="hKH-rY-Yxs" id="k3d-MQ-GXf"/>
+                        <outlet property="segmentOutlet" destination="KBz-y0-5FY" id="UPn-BX-ArM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,7 +262,7 @@
                                         <switch opaque="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8v-cc-RBq">
                                             <rect key="frame" x="417.5" y="6" width="51" height="31"/>
                                             <connections>
-                                                <action selector="turnOnOff" destination="84L-zG-OUk" eventType="touchUpInside" id="b2y-iT-rdB"/>
+                                                <action selector="turnOnOff:" destination="84L-zG-OUk" eventType="touchUpInside" id="PT8-7s-gRw"/>
                                             </connections>
                                         </switch>
                                         <slider opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TgB-3Y-ToX">

@@ -18,6 +18,7 @@ protocol MbedderDelegate {
     func returnStatus(status: String, resource: String)
     func didPUTthenPOST(resource: String)
     func didUpdatedValue(value: String, resource: String)
+    func returnNotificationaFromServer(content: NSDictionary)
 }
 
 class Mbedder: NSObject {
@@ -28,7 +29,8 @@ class Mbedder: NSObject {
     
     //variables and constants
     let basicList = "https://api.connector.mbed.com/endpoints"
-    let authKey = "Bearer Yb0jTruOSpFrnWXAwaFf9qzoJWdWFDaDTDuX3ZOAYVYxS0LPcpD5HANbHe5COCJET5kNGrE8UwZ4rAv6ZTNM5Ymx3Nw0IevLGtzQ"
+    var authKey = "Bearer IIqReRdjBniF67b3Ht4k2NnG8XE3hACSeouWeJlvHgY5iqOyrbmHs56oBpehwy4PdKciUne9IQf1IWc4HKXojxkXRI7790zsibuj"
+    
     var endName: String?
     var endNodes: NSMutableDictionary = [:]
     var option: RestOptions?
@@ -44,6 +46,11 @@ class Mbedder: NSObject {
     
     private override init(){
         self.option = RestOptions.init()
+        self.option!.httpHeaders = ["Authorization": authKey]
+    }
+    
+    func setupKey(key: String){
+        authKey = "Bearer " + key
         self.option!.httpHeaders = ["Authorization": authKey]
     }
     
@@ -193,28 +200,57 @@ class Mbedder: NSObject {
         rest.get(nil, withOptions: localOption){ result, httpResponse in
             do{
                 let json = try result.value()
-//                print("\(self.TAG)openLongPolling: json: \(json)")
+                let dictionary = self.resolveJsonToDictionary(json)
+                self.delegate?.returnNotificationaFromServer(dictionary)
+            }catch{
+                print("\(self.TAG)Error performing openLongPolling GET \(error), httpResponse: \(httpResponse), result: \(result)")
+                print("%@", LWM2MID_DIGI_OUT)
+            }
+        }
+    }
+    
+    func openGreenLongPolling(resource: String){
+        print("\(TAG) openGreenLongPolling, resource:\(resource)")
+        let longPolling = "https://api.connector.mbed.com/notification/pull"
+        
+        guard let rest = RestController.createFromURLString(longPolling) else{
+            print("\(TAG)Bad URL during init with value: " + longPolling)
+            return
+        }
+        
+        var localOption = RestOptions.init()
+        localOption.httpHeaders = ["Authorization": authKey, "Connection" : "keep-alive"]
+        rest.get(nil, withOptions: localOption){ result, httpResponse in
+            do{
+                let json = try result.value()
+                print("\(self.TAG)openLongPolling: json: \(result)")
+                if (json.jsonObject!["reg-updates"] != nil){
+                    print("\(self.TAG) reg-updates")
+                }
                 if let asyncJson = json.jsonObject!["async-responses"]{
+                    //                    for name in asyncJson.jsonArray!{
+                    //                        print("\(self.TAG) + \(name)")
+                    //                    }
                     if let jsonArray = asyncJson.jsonArray![0]{
-                        print("\(self.TAG)openLongPolling: json: \(jsonArray)")
+                        print("\(self.TAG)openGreenLongPolling, resource: \(resource), json: \(jsonArray)")
                         if let base64String = jsonArray["payload"]?.stringValue{
                             let payload = self.base64StringToString(base64String)
-                            print("\(self.TAG)openLongPolling, base64: \(base64String) payload: \(payload)")
+                            print("\(self.TAG)openGreenLongPolling, base64: \(base64String) payload: \(payload)")
                             self.delegate?.returnPayload(payload, resource: resource)
                         }
                         if let statusString = jsonArray["status"]?.stringValue{
-                            print("\(self.TAG)openLongPolling, status: \(statusString)")
+                            print("\(self.TAG)openGreenLongPolling, status: \(statusString)")
                             self.delegate?.returnStatus(statusString, resource: resource)
                         }
                     }else if let jsonValue = asyncJson.jsonObject{
                         print("\(self.TAG)jsonValue: \(jsonValue)")
                     }
-                    
                 }
             }catch{
-                print("\(self.TAG)Error performing openLongPolling GET \(error), httpResponse: \(httpResponse), result: \(result)")
+                print("\(self.TAG)Error performing openGreenLongPolling GET \(error), httpResponse: \(httpResponse), result: \(result)")
                 print("%@", LWM2MID_DIGI_OUT)
             }
+//            self.updateGreenStatus(resource)
         }
     }
     
@@ -272,7 +308,6 @@ class Mbedder: NSObject {
             print("\(TAG)Bad URL during init with value: " + listNodes)
             return
         }
-        
         rest.get(nil, withOptions: self.option!){ result, httpResponse in
             do{
                 let json = try result.value()
@@ -292,5 +327,40 @@ class Mbedder: NSObject {
         result = String(data: decodedData!, encoding: NSUTF8StringEncoding)
 
         return result!
+    }
+    
+    func resolveResource(string: String) -> String {
+        let startIndex = string.startIndex.advancedBy(string.characters.count-12)
+        let stringSplit = string.substringFromIndex(startIndex)
+        print("\(TAG) resolveResource: \(stringSplit)")
+        return stringSplit
+    }
+    
+    func resolveJsonToDictionary(json: JSON) -> NSDictionary{
+        print("\(TAG) resolveJsonToDictionary start")
+        var temp: [String: NSDictionary] = [: ]
+        if let asyncResponse = json.jsonObject!["async-responses"]{
+            let jsonArray = asyncResponse[0]
+            var response:[String: String] = [: ]
+            response["content-type"] = jsonArray!["ct"]?.stringValue
+            response["raw-id"] = jsonArray!["id"]?.stringValue
+            let id = self.resolveResource(response["raw-id"]!)
+            response["id"] = id
+            if let payloadTemp = jsonArray!["payload"]{
+                let payload = self.base64StringToString(payloadTemp.stringValue!)
+                response["payload"] = payload
+            }
+            response["status"] = jsonArray!["status"]?.stringValue
+            temp["async-response"] = response as NSDictionary
+        }
+        if let regUpdates = json.jsonObject!["reg-updates"] {
+            var response:[String: AnyObject] = [: ]
+            let jsonArray = regUpdates[0]
+            response["end-point"] = jsonArray!["ep"]?.stringValue
+            response["end-point-text"] = jsonArray!["ept"]?.stringValue
+            response["resources"] = jsonArray!["resources"] as? AnyObject
+            temp["reg-updates"] = response as NSDictionary
+        }
+        return temp as NSDictionary
     }
 }

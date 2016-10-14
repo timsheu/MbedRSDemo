@@ -8,22 +8,38 @@
 
 import UIKit
 import CocoaLumberjack
+import KSCrash
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        DDLog.addLogger(DDTTYLogger.sharedInstance()) // TTY = Xcode console
-        DDLog.addLogger(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
+        // Override point for customization after application launch.
+        let emailAddress = "cchsu20@nuvoton.com"
         
-        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
-        fileLogger.rollingFrequency = 60*60*24  // 24 hours
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
-        DDLog.addLogger(fileLogger)
+        let installation = KSCrashInstallationEmail.sharedInstance()
+        installation.recipients = [emailAddress]
+        installation.subject = "Crash Report"
+        installation.message = "This is a crash report"
+        installation.filenameFmt = "crash-report-%d.json.gz"
+        //        installation.reportStyle = KSCrashEmailReportStyleJSON
         
+        installation.addConditionalAlertWithTitle("Crash Detected",
+                                                  message: "The app crashed last time it was launched. Send a crash report?",
+                                                  yesAnswer: "Sure!",
+                                                  noAnswer: "No thanks")
+        
+        installation.install()
+        
+        installation.sendAllReportsWithCompletion { (reports, completed, error) -> Void in
+            if(completed) {
+                print("Sent \(reports.count) reports")
+            } else {
+                print("Failed to send reports: \(error)")
+            }
+        }
         
         // Override point for customization after application launch.
         return true

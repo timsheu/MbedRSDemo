@@ -171,7 +171,7 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
                 count = 0
             }
         }
-        if let regUpdates = content["reg-updates"] {
+        if content["reg-updates"] != nil {
             print("\(TAG) reg-updates")
         }
         count += 1

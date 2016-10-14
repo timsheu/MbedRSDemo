@@ -190,7 +190,7 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
 //                self.updatingSliderValue()
             }
         }
-        if let regUpdates = content["reg-updates"] {
+        if content["reg-updates"] != nil {
             print("\(TAG) reg-updates")
         }
         if isResponse == false {

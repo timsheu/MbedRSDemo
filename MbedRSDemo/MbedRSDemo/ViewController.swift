@@ -28,7 +28,6 @@ class ViewController: UIViewController, MbedderDelegate {
         self.view.showToast("連接伺服器中", position: .Bottom, popTime: 3, dismissOnTap: true)
         mbedder.delegate = self
         mbedder.getEndName()
-        
     }
     
     override func viewDidLoad() {

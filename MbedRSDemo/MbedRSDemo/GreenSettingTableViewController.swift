@@ -7,6 +7,27 @@
 //
 
 import UIKit
+import ASToast
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
     @IBOutlet weak var settingTitle: UILabel!
@@ -20,10 +41,10 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
     var valueLabel: UILabel?
     var onOff = "0"
     var sliderValue = "0"
-    var timer: NSTimer?
+    var timer: Timer?
     var resource: String?
     var count = 0
-    func setCustomTitle(name: String){
+    func setCustomTitle(_ name: String){
         self.titleName = name
     }
     //MARK: table view function
@@ -46,32 +67,32 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 2
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let label = cell.viewWithTag(101) as? UILabel
         let localButton = cell.viewWithTag(102) as! UISwitch
         let localSlider = cell.viewWithTag(103) as! UISlider
-        localSlider.hidden = true
-        localButton.hidden = true
+        localSlider.isHidden = true
+        localButton.isHidden = true
         settingTitle!.text = self.titleName
-        if indexPath.row == 0 {
+        if (indexPath as NSIndexPath).row == 0 {
             switchButton = localButton
-            switchButton.hidden = false
+            switchButton.isHidden = false
             label?.text = "Switch ON/OFF"
-        }else if indexPath.row == 1{
+        }else if (indexPath as NSIndexPath).row == 1{
             slider = localSlider
-            slider.hidden = false
+            slider.isHidden = false
             slider?.minimumValue = 0.0
             slider?.value = 0.0
             slider?.maximumValue = 100.0
@@ -84,20 +105,20 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
         return cell
     }
     
-    @IBAction func turnOnOff(sender: UISwitch){
+    @IBAction func turnOnOff(_ sender: UISwitch){
         var onoff = "1"
-        if sender.on == false {
+        if sender.isOn == false {
             onoff = "0"
         }
         Mbedder.sharedInstance().setResourcePUT(resourceButtonString, value: onoff)
     }
     
-    @IBAction func sliderChanging(sender: UISlider){
+    @IBAction func sliderChanging(_ sender: UISlider){
         sliderValue = String(format: "%.0f", sender.value)
         self.valueLabel?.text = sliderValue
     }
     
-    @IBAction func sliderChanged(sender: UISlider){
+    @IBAction func sliderChanged(_ sender: UISlider){
         let onoff = (sender.value > 0) ? true : false
         if resourceSliderString == resourceButtonString {
             switchButton.setOn(onoff, animated: true)
@@ -107,7 +128,7 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
     
     //MARK: Mbedder delegate
     // POST is to activated the value, so any value would work
-    func didPUTthenPOST(string: String) {
+    func didPUTthenPOST(_ string: String) {
         Mbedder.sharedInstance().setResourcePOST(string, value: "0")
     }
     
@@ -125,15 +146,15 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
         Mbedder.sharedInstance().updateGreenStatus(resourceButtonString)
     }
     
-    func didUpdatedValue(value: String, resource: String) {
+    func didUpdatedValue(_ value: String, resource: String) {
         print("\(TAG)didUpdatedValue: " + value)
     }
     
-    func returnPayload(value: String, resource: String) {
+    func returnPayload(_ value: String, resource: String) {
         print("\(TAG): returnPayload: resource: \(resource), value: \(value)")
     }
     
-    func returnStatus(string: String, resource: String) {
+    func returnStatus(_ string: String, resource: String) {
     }
     
     func didReadList() {
@@ -148,18 +169,18 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
         //not used here
     }
     
-    func returnNotificationaFromServer(content: NSDictionary) {
+    func returnNotificationaFromServer(_ content: NSDictionary) {
         print("\(TAG)returnNotificationaFromServer:")
         var isResponse = false
-        if let asyncResponse = content["async-response"] {
+        if let asyncResponse = content["async-response"] as? [String: String] {
             print("\(TAG) async-response")
-            if asyncResponse["id"] as! String == resourceSliderString{
+            if asyncResponse["id"]! as String == resourceSliderString{
                 resource = resourceSliderString
-                if let payload = asyncResponse["payload"] as? String {
+                if let payload = asyncResponse["payload"]{
                     isResponse = true
                     print("\(TAG) id: \(resourceSliderString), payload: \(payload)")
                     let value = Float(payload)
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         self.slider?.value = value!
                         self.valueLabel?.text = String(format: "%.0f", value!)
                         self.count = 0
@@ -172,13 +193,13 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
                     })
                     
                 }
-            }else if asyncResponse["id"] as! String == resourceButtonString{
+            }else if asyncResponse["id"] == resourceButtonString{
                 resource = resourceButtonString
-                if let payload = asyncResponse["payload"] as? String{
+                if let payload = asyncResponse["payload"]{
                     isResponse = true
                     print("\(TAG) id: \(resourceButtonString), payload: \(payload)")
                     let value = (Int(payload) > 0) ? true : false
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         self.switchButton?.setOn(value, animated: true)
                         self.count = 0
                     })
@@ -196,12 +217,12 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
         if isResponse == false {
             count += 1
             print("\(TAG) no response")
-            dispatch_async(dispatch_get_main_queue(), {
-                NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GreenSettingTableViewController.timerPolling), userInfo: self.resource, repeats: false)
+            DispatchQueue.main.async(execute: {
+                Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(GreenSettingTableViewController.timerPolling), userInfo: self.resource, repeats: false)
                 if self.count == 10 {
-                    self.view.showToast("伺服器忙碌，無法更新頁面數值，但仍可修改數值", position: .Bottom, popTime: 10, dismissOnTap: true)
+                    self.view.makeToast("伺服器忙碌，無法更新頁面數值，但仍可修改數值", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
                 } else if self.count == 2 {
-                    self.view.showToast("連線困難，持續嘗試中", position: .Bottom, popTime: 3, dismissOnTap: true)
+                    self.view.makeToast("連線困難，持續嘗試中", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
                 }
             })
             
@@ -209,7 +230,7 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
     }
     
     //MARK: utilities
-    private func judgeResourceString(type: String) -> String{
+    fileprivate func judgeResourceString(_ type: String) -> String{
         var returnString = "/3308/0/5900"
         switch self.titleName {
         case "Temperature":
@@ -240,7 +261,7 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
         return returnString
     }
     
-    func timerPolling(timer: NSTimer){
+    func timerPolling(_ timer: Timer){
         let resource = timer.userInfo as! String
         Mbedder.sharedInstance().openLongPolling(resource)
         Mbedder.sharedInstance().updateGreenStatus(resource)

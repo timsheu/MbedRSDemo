@@ -1,57 +1,57 @@
 PODS:
-  - Charts (2.2.5):
-    - Charts/Core (= 2.2.5)
-  - Charts/Core (2.2.5)
-  - CocoaLumberjack (2.3.0):
-    - CocoaLumberjack/Default (= 2.3.0)
-    - CocoaLumberjack/Extensions (= 2.3.0)
-  - CocoaLumberjack/Core (2.3.0)
-  - CocoaLumberjack/Default (2.3.0):
+  - ASToast (1.0.4)
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
+  - CocoaLumberjack (3.0.0):
+    - CocoaLumberjack/Default (= 3.0.0)
+    - CocoaLumberjack/Extensions (= 3.0.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.3.0):
+  - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
-  - EasyToast (1.0.0)
-  - KSCrash (1.8.13):
-    - KSCrash/Installations (= 1.8.13)
-  - KSCrash/Installations (1.8.13):
+  - KSCrash (1.9.2):
+    - KSCrash/Installations (= 1.9.2)
+  - KSCrash/Installations (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting
-  - KSCrash/Recording (1.8.13)
-  - KSCrash/Reporting (1.8.13):
+  - KSCrash/Recording (1.9.2)
+  - KSCrash/Reporting (1.9.2):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 1.8.13)
-    - KSCrash/Reporting/MessageUI (= 1.8.13)
-    - KSCrash/Reporting/Sinks (= 1.8.13)
-    - KSCrash/Reporting/Tools (= 1.8.13)
-  - KSCrash/Reporting/Filters (1.8.13):
+    - KSCrash/Reporting/Filters (= 1.9.2)
+    - KSCrash/Reporting/MessageUI (= 1.9.2)
+    - KSCrash/Reporting/Sinks (= 1.9.2)
+    - KSCrash/Reporting/Tools (= 1.9.2)
+  - KSCrash/Reporting/Filters (1.9.2):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 1.8.13)
-    - KSCrash/Reporting/Filters/AppleFmt (= 1.8.13)
-    - KSCrash/Reporting/Filters/Base (= 1.8.13)
-    - KSCrash/Reporting/Filters/Basic (= 1.8.13)
-    - KSCrash/Reporting/Filters/GZip (= 1.8.13)
-    - KSCrash/Reporting/Filters/JSON (= 1.8.13)
-    - KSCrash/Reporting/Filters/Sets (= 1.8.13)
-    - KSCrash/Reporting/Filters/Stringify (= 1.8.13)
-    - KSCrash/Reporting/Filters/Tools (= 1.8.13)
-  - KSCrash/Reporting/Filters/Alert (1.8.13):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (1.8.13):
+    - KSCrash/Reporting/Filters/Alert (= 1.9.2)
+    - KSCrash/Reporting/Filters/AppleFmt (= 1.9.2)
+    - KSCrash/Reporting/Filters/Base (= 1.9.2)
+    - KSCrash/Reporting/Filters/Basic (= 1.9.2)
+    - KSCrash/Reporting/Filters/GZip (= 1.9.2)
+    - KSCrash/Reporting/Filters/JSON (= 1.9.2)
+    - KSCrash/Reporting/Filters/Sets (= 1.9.2)
+    - KSCrash/Reporting/Filters/Stringify (= 1.9.2)
+    - KSCrash/Reporting/Filters/Tools (= 1.9.2)
+  - KSCrash/Reporting/Filters/Alert (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (1.8.13):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (1.8.13):
+  - KSCrash/Reporting/Filters/AppleFmt (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (1.8.13):
+  - KSCrash/Reporting/Filters/Base (1.9.2):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (1.8.13):
+  - KSCrash/Reporting/Filters/GZip (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (1.8.13):
+  - KSCrash/Reporting/Filters/JSON (1.9.2):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/AppleFmt
     - KSCrash/Reporting/Filters/Base
@@ -59,32 +59,32 @@ PODS:
     - KSCrash/Reporting/Filters/GZip
     - KSCrash/Reporting/Filters/JSON
     - KSCrash/Reporting/Filters/Stringify
-  - KSCrash/Reporting/Filters/Stringify (1.8.13):
+  - KSCrash/Reporting/Filters/Stringify (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Tools (1.8.13):
+  - KSCrash/Reporting/Filters/Tools (1.9.2):
     - KSCrash/Recording
-  - KSCrash/Reporting/MessageUI (1.8.13):
+  - KSCrash/Reporting/MessageUI (1.9.2):
     - KSCrash/Recording
-  - KSCrash/Reporting/Sinks (1.8.13):
+  - KSCrash/Reporting/Sinks (1.9.2):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters
     - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (1.8.13):
+  - KSCrash/Reporting/Tools (1.9.2):
     - KSCrash/Recording
 
 DEPENDENCIES:
+  - ASToast
   - Charts
   - CocoaLumberjack
-  - EasyToast
   - KSCrash
 
 SPEC CHECKSUMS:
-  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
-  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  EasyToast: 8f2b0fd8321b960d60684aec02c0ad970d4f7877
-  KSCrash: 4c3a83f133b60f4bd57e05235ebf8d46e36d378d
+  ASToast: ceefaeb9e7aad8d8f64689eb84f12ed40f1f1cd9
+  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
+  KSCrash: f1fee88c7b3c6b17cb41d99eefb182823fa8f944
 
-PODFILE CHECKSUM: 0fd4305c7b50d6c5a81fbb282bd0850a7ec1f1ac
+PODFILE CHECKSUM: f996e55dd66fff0ce0c0d9f31ac5e60414c0ad54
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

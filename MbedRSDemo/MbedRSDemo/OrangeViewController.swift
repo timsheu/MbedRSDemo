@@ -22,7 +22,7 @@ class OrangeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func showStatistic(sender: UIButton){
+    @IBAction func showStatistic(_ sender: UIButton){
         switch sender.tag {
         case 20:
             targetTitleString = "Temperature"
@@ -40,12 +40,12 @@ class OrangeViewController: UIViewController {
             targetTitleString = "Temperature"
             break
         }
-        self.performSegueWithIdentifier("OrangeSegue", sender: nil)
+        self.performSegue(withIdentifier: "OrangeSegue", sender: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OrangeSegue" {
-            let dest = segue.destinationViewController as? OrangeChartViewController
+            let dest = segue.destination as? OrangeChartViewController
             dest?.setCustomTitle(targetTitleString!)
         }
     }

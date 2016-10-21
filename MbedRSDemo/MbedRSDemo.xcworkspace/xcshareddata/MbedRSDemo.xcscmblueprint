@@ -9,7 +9,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C5635D2B-9087-40C6-82F2-4658F2AB047D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "3DEE348339549D2FB2F5E154D083822C5CB44DF0" : "..\/..\/..\/..\/Volumes\/Documents\/Document\/Project\/iOS\/MbedRSDemo\/RestEssentials",
+    "3DEE348339549D2FB2F5E154D083822C5CB44DF0" : "MbedRSDemo\/RestEssentials\/",
     "8A3AAF07F8AEFDDFB813EA1F9B77C708964CA566" : "MbedRSDemo\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "MbedRSDemo",

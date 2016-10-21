@@ -328,6 +328,7 @@
 				A8D992C61D8676AD007B1636 /* Frameworks */,
 				A8D992C71D8676AD007B1636 /* Resources */,
 				037418C6BF236FCA1C077F1C /* [CP] Copy Pods Resources */,
+				7C954C1B7E23DB3649DA4338 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -352,6 +353,7 @@
 					A8D992A91D8676AD007B1636 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = XZ7PL3RVBP;
+						LastSwiftMigration = 0800;
 					};
 					A8D992BD1D8676AD007B1636 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -491,7 +493,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C954C1B7E23DB3649DA4338 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uKeeperUITests/Pods-uKeeperUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		922971DDF456D4F96D756026 /* [CP] Check Pods Manifest.lock */ = {
@@ -506,7 +523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		953187428E24F157BF755E2D /* [CP] Embed Pods Frameworks */ = {
@@ -536,7 +553,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4713CE0057E167C4E682B59 /* [CP] Embed Pods Frameworks */ = {
@@ -739,12 +756,11 @@
 					"\"Charts\"",
 					"-framework",
 					"\"CocoaLumberjack\"",
-					"-framework",
-					"\"EasyToast\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.mbeddemo;
 				PRODUCT_NAME = uKeeper;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cchsu20/Documents/Road show mbed demo/MbedRSDemo/MbedRSDemo/MbedRSDemo/uKeeper-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -768,12 +784,11 @@
 					"\"Charts\"",
 					"-framework",
 					"\"CocoaLumberjack\"",
-					"-framework",
-					"\"EasyToast\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuvoton.mbeddemo;
 				PRODUCT_NAME = uKeeper;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cchsu20/Documents/Road show mbed demo/MbedRSDemo/MbedRSDemo/MbedRSDemo/uKeeper-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

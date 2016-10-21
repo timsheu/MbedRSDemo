@@ -6,7 +6,7 @@ target 'uKeeper' do
   use_frameworks!
   pod 'Charts'
   pod 'CocoaLumberjack'
-  pod 'EasyToast'
+  pod 'ASToast'
   pod 'KSCrash' 
   # Pods for MbedRSDemo
 

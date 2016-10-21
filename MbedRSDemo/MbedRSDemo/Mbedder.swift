@@ -14,11 +14,11 @@ protocol MbedderDelegate {
     func notReadingEnd()
     func didReadNode()
     func didReadList()
-    func returnPayload(value: String, resource: String)
-    func returnStatus(status: String, resource: String)
-    func didPUTthenPOST(resource: String)
-    func didUpdatedValue(value: String, resource: String)
-    func returnNotificationaFromServer(content: NSDictionary)
+    func returnPayload(_ value: String, resource: String)
+    func returnStatus(_ status: String, resource: String)
+    func didPUTthenPOST(_ resource: String)
+    func didUpdatedValue(_ value: String, resource: String)
+    func returnNotificationaFromServer(_ content: NSDictionary)
 }
 
 class Mbedder: NSObject {
@@ -36,7 +36,7 @@ class Mbedder: NSObject {
     var option: RestOptions?
     
     //shared instance setup
-    private static var mInstance:Mbedder?
+    fileprivate static var mInstance:Mbedder?
     static func sharedInstance() -> Mbedder{
         if mInstance == nil {
             mInstance = Mbedder()
@@ -44,12 +44,12 @@ class Mbedder: NSObject {
         return mInstance!
     }
     
-    private override init(){
+    fileprivate override init(){
         self.option = RestOptions.init()
         self.option!.httpHeaders = ["Authorization": authKey]
     }
     
-    func setupKey(key: String){
+    func setupKey(_ key: String){
         authKey = "Bearer " + key
         self.option!.httpHeaders = ["Authorization": authKey]
     }
@@ -89,7 +89,7 @@ class Mbedder: NSObject {
             do{
                 let json = try result.value()
                 let nodesArray = json.jsonArray!
-                for (index, element) in nodesArray.enumerate(){
+                for (index, element) in nodesArray.enumerated(){
                     print("\(self.TAG)index: \(index), element: \(element.jsonObject?["uri"]))")
                     let uri = element.jsonObject?["uri"]?.stringValue
                     let (sensorType, dataNumber, dataType) = self.resolveNameFromURI(uri!)
@@ -106,7 +106,7 @@ class Mbedder: NSObject {
         }
     }
     
-    internal func resolveNameFromURI(uri: String) -> (String, String, String){
+    internal func resolveNameFromURI(_ uri: String) -> (String, String, String){
         
         var splitArray = uri.characters.split{$0 == "/"}.map(String.init)
         let dataNumber = splitArray[0]
@@ -169,7 +169,7 @@ class Mbedder: NSObject {
         return (sensorType!, dataNumber, dataType!)
     }
     
-    internal func getNodeValue(dataNumber: String){
+    internal func getNodeValue(_ dataNumber: String){
         openLongPolling("")
         let listNodes = basicList + "/" + self.endName! + dataNumber + "/"
         print("\(TAG)getNodeValue: " + listNodes)
@@ -187,7 +187,7 @@ class Mbedder: NSObject {
         }
     }
     
-    func openLongPolling(resource: String){
+    func openLongPolling(_ resource: String){
         let listNodes = "https://api.connector.mbed.com/notification/pull"
         
         guard let rest = RestController.createFromURLString(listNodes) else{
@@ -209,7 +209,7 @@ class Mbedder: NSObject {
         }
     }
     
-    func openGreenLongPolling(resource: String){
+    func openGreenLongPolling(_ resource: String){
         print("\(TAG) openGreenLongPolling, resource:\(resource)")
         let longPolling = "https://api.connector.mbed.com/notification/pull"
         
@@ -254,7 +254,7 @@ class Mbedder: NSObject {
         }
     }
     
-    func setResourcePUT(resource: String, value: String){
+    func setResourcePUT(_ resource: String, value: String){
         let PUTNodes = basicList + "/" + self.endName! + resource
         print("\(TAG)PUTNodes: \(PUTNodes)")
         guard let rest = RestController.createFromURLString(PUTNodes) else{
@@ -264,7 +264,7 @@ class Mbedder: NSObject {
         
         var localOption = RestOptions.init()
         localOption.httpHeaders = ["Authorization": authKey]
-        let data = 	value.dataUsingEncoding(NSUTF8StringEncoding)
+        let data = 	value.data(using: String.Encoding.utf8)
         rest.put(nil, withData: data!, withOptions: localOption){ result, httpResponse in
             do{
                 let json = try result.value()
@@ -279,14 +279,14 @@ class Mbedder: NSObject {
         }
     }
     
-    func setResourcePOST(resource: String, value: String){
+    func setResourcePOST(_ resource: String, value: String){
         let listNodes = basicList + "/" + self.endName! + resource
         
         guard let rest = RestController.createFromURLString(listNodes) else{
             print("\(TAG)Bad URL during init with value: " + listNodes)
             return
         }
-        let data = 	value.dataUsingEncoding(NSUTF8StringEncoding)
+        let data = 	value.data(using: String.Encoding.utf8)
         
         rest.post(nil, withNSData: data!, withOptions: self.option!){ result, httpResponse in
             do{
@@ -301,7 +301,7 @@ class Mbedder: NSObject {
         }
     }
     
-    func updateGreenStatus(resource: String){
+    func updateGreenStatus(_ resource: String){
         let listNodes = basicList + "/" + self.endName! + resource + "/"
             print("\(TAG)updateGreenStatus: " + listNodes)
         guard let rest = RestController.createFromURLString(listNodes) else{
@@ -321,22 +321,22 @@ class Mbedder: NSObject {
     
     
     //MARK: utility
-    func base64StringToString(string: String) -> String {
+    func base64StringToString(_ string: String) -> String {
         var result: String?
-        let decodedData = NSData(base64EncodedString: string, options: .IgnoreUnknownCharacters)
-        result = String(data: decodedData!, encoding: NSUTF8StringEncoding)
+        let decodedData = Data(base64Encoded: string, options: .ignoreUnknownCharacters)
+        result = String(data: decodedData!, encoding: String.Encoding.utf8)
 
         return result!
     }
     
-    func resolveResource(string: String) -> String {
-        let startIndex = string.startIndex.advancedBy(string.characters.count-12)
-        let stringSplit = string.substringFromIndex(startIndex)
+    func resolveResource(_ string: String) -> String {
+        let startIndex = string.characters.index(string.startIndex, offsetBy: string.characters.count-12)
+        let stringSplit = string.substring(from: startIndex)
         print("\(TAG) resolveResource: \(stringSplit)")
         return stringSplit
     }
     
-    func resolveJsonToDictionary(json: JSON) -> NSDictionary{
+    func resolveJsonToDictionary(_ json: JSON) -> NSDictionary{
         print("\(TAG) resolveJsonToDictionary start")
         var temp: [String: NSDictionary] = [: ]
         if let asyncResponse = json.jsonObject!["async-responses"]{
@@ -356,8 +356,8 @@ class Mbedder: NSObject {
         if let regUpdates = json.jsonObject!["reg-updates"] {
             var response:[String: AnyObject] = [: ]
             let jsonArray = regUpdates[0]
-            response["end-point"] = jsonArray!["ep"]?.stringValue
-            response["end-point-text"] = jsonArray!["ept"]?.stringValue
+            response["end-point"] = jsonArray!["ep"]?.stringValue as AnyObject?
+            response["end-point-text"] = jsonArray!["ept"]?.stringValue as AnyObject?
             response["resources"] = jsonArray!["resources"] as? AnyObject
             temp["reg-updates"] = response as NSDictionary
         }

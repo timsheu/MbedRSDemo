@@ -13,7 +13,7 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
     let TAG = "OrangeChartVC: "
     var time = ["N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"]
     var values = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-    var timer: NSTimer?
+    var timer: Timer?
     var titleName: String?
     var resourceString = "/3303/0/5700"
     var count = 0
@@ -33,60 +33,58 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         self.timer?.invalidate()
     }
     
-    func setCustomTitle(title: String) {
+    func setCustomTitle(_ title: String) {
         self.titleName = title
     }
     //MARK: Charts functions
     func setupLineCharts(){
         lineChart?.delegate = self
-        lineChart?.descriptionText = titleName!
-        lineChart?.noDataTextDescription = "Data coming in, please wait!"
+        lineChart?.chartDescription?.text = titleName!
+        lineChart?.noDataText = "Data coming in, please wait!"
         lineChart?.dragEnabled = true
         lineChart?.setScaleEnabled(false)
         lineChart?.pinchZoomEnabled = true
         lineChart?.drawGridBackgroundEnabled = true
         lineChart?.xAxis.gridLineWidth = 1.0
         
-        lineChart?.legend.form = ChartLegend.Form.Line
-        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(OrangeChartViewController.setChartsTimer(_:)), userInfo: nil, repeats: true)
+        lineChart?.legend.form = Legend.Form.line
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(OrangeChartViewController.setChartsTimer(_:)), userInfo: nil, repeats: true)
         self.timer?.fire()
     }
     
-    func setChartsTimer(timer: NSTimer){
+    func setChartsTimer(_ timer: Timer){
         mbedderGetNodeValue()
     }
     
     func setCharts(){
         var demoDataEntries: [ChartDataEntry] = []
         for i in 0..<time.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
             demoDataEntries.append(dataEntry)
         }
-        if lineChart.data?.dataSetCount > 0 {
-            lineChart.data?.removeDataSetByIndex(0)
-        }
-        let lineChartDataSet = LineChartDataSet(yVals: demoDataEntries, label: "value")
+        let lineChartDataSet = LineChartDataSet(values: demoDataEntries, label: "value")
         lineChartDataSet.highlightLineDashLengths = [5.0, 2.5]
-        lineChartDataSet.setColor(UIColor.blackColor())
+        lineChartDataSet.setColor(UIColor.black)
         lineChartDataSet.lineWidth = 1.0
         lineChartDataSet.circleRadius = 3.0
         lineChartDataSet.drawCircleHoleEnabled = false
-        lineChartDataSet.valueFont = UIFont.systemFontOfSize(9.0)
+        lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 9.0)
         lineChartDataSet.lineDashLengths = [5.0, 5.0]
         lineChartDataSet.lineWidth = 1.0
-        let lineChartData = LineChartData(xVals: time, dataSet: lineChartDataSet)
-        lineChart.data = lineChartData
+        
+//        let lineChartData = LineChartData(xVals: time, dataSet: lineChartDataSet)
+        lineChart.data = LineChartData(dataSet: lineChartDataSet)
     }
     //MARK: random number
-    func changeData(string: String){
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.NSMinuteCalendarUnit, .NSSecondCalendarUnit], fromDate: date)
-        let currentTime = String(format: "%02d", components.minute) + ":" + String(format: "%02d", components.second)
+    func changeData(_ string: String){
+        let date = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components([.NSMinuteCalendarUnit, .NSSecondCalendarUnit], from: date)
+        let currentTime = String(format: "%02d", components.minute!) + ":" + String(format: "%02d", components.second!)
         print("\(TAG)Current Time: " + currentTime)
         time.removeFirst()
         time.append(currentTime)
@@ -98,7 +96,7 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         }else{
             values.append(Double(string)!)
         }
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.setCharts()
         })
     }
@@ -119,11 +117,11 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         //not used here
     }
     
-    func didPUTthenPOST(resource: String) {
+    func didPUTthenPOST(_ resource: String) {
         //not used here
     }
     
-    func didUpdatedValue(string: String, resource: String) {
+    func didUpdatedValue(_ string: String, resource: String) {
         //not used here
     }
     
@@ -149,11 +147,11 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         Mbedder.sharedInstance().getNodeValue(self.resourceString)
     }
     
-    func returnPayload(string: String, resource: String) {
+    func returnPayload(_ string: String, resource: String) {
         print("\(TAG)returnPayload:")
     }
     
-    func returnStatus(string: String, resource: String) {
+    func returnStatus(_ string: String, resource: String) {
         print("\(TAG)returnStatus: \(string)")
     }
     
@@ -161,13 +159,13 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
         //not used here
     }
     
-    func returnNotificationaFromServer(content: NSDictionary) {
+    func returnNotificationaFromServer(_ content: NSDictionary) {
         print("\(TAG)returnNotificationaFromServer:")
-        if let asyncResponse = content["async-response"] {
-            if asyncResponse["id"] as! String == resourceString{
-                let payload = asyncResponse["payload"] as! String
+        if let asyncResponse = content["async-response"] as? [String: String] {
+            if asyncResponse["id"] == resourceString{
+                let payload = asyncResponse["payload"]
                 print("\(TAG) id: \(resourceString), payload: \(payload)")
-                changeData(payload)
+                changeData(payload!)
                 count = 0
             }
         }
@@ -175,10 +173,11 @@ class OrangeChartViewController: UIViewController, ChartViewDelegate, MbedderDel
             print("\(TAG) reg-updates")
         }
         count += 1
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
 
             if self.count == 5{
-                self.view.showToast("連線困難，持續嘗試中", position: .Bottom, popTime: 5, dismissOnTap: true)
+                
+//                self.view.showToast("連線困難，持續嘗試中", position: .Bottom, popTime: 5, dismissOnTap: true)
             }
         })
     }

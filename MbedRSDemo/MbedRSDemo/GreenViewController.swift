@@ -21,7 +21,7 @@ class GreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func goSetting(sender: UIButton){
+    @IBAction func goSetting(_ sender: UIButton){
         switch sender.tag {
         case 10:
             targetTitleString = "Temperature"
@@ -36,13 +36,13 @@ class GreenViewController: UIViewController {
         default:
             break;
         }
-        self.performSegueWithIdentifier("GreenSegue", sender: nil)
+        self.performSegue(withIdentifier: "GreenSegue", sender: nil)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GreenSegue" {
-            let dest = segue.destinationViewController as? GreenSettingTableViewController
+            let dest = segue.destination as? GreenSettingTableViewController
             dest?.setCustomTitle(targetTitleString!)
         }
     }

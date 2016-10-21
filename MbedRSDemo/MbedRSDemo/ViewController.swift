@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import ASToast
 import CocoaLumberjack
-import EasyToast
+
 class ViewController: UIViewController, MbedderDelegate {
     @IBOutlet var orangeButton: UIButton!
     @IBOutlet var greenButton: UIButton!
     @IBOutlet var segmentOutlet: UISegmentedControl!
-    @IBAction func segment(sender: UISegmentedControl){
+    @IBAction func segment(_ sender: UISegmentedControl){
         if sender.selectedSegmentIndex == 0{
             mbedder.setupKey("Yb0jTruOSpFrnWXAwaFf9qzoJWdWFDaDTDuX3ZOAYVYxS0LPcpD5HANbHe5COCJET5kNGrE8UwZ4rAv6ZTNM5Ymx3Nw0IevLGtzQ")
         }else{
@@ -24,8 +24,9 @@ class ViewController: UIViewController, MbedderDelegate {
     }
     let mbedder = Mbedder.sharedInstance()
     
-    @IBAction func connectMbed(sender: AnyObject) {
-        self.view.showToast("連接伺服器中", position: .Bottom, popTime: 3, dismissOnTap: true)
+    @IBAction func connectMbed(_ sender: AnyObject) {
+//        self.view.showToast("連接伺服器中", position: .Bottom, popTime: 3, dismissOnTap: true)
+        self.view.makeToast("連接伺服器中", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
         mbedder.delegate = self
         mbedder.getEndName()
     }
@@ -34,8 +35,8 @@ class ViewController: UIViewController, MbedderDelegate {
         super.viewDidLoad()
 //        let dummy = ""
 //        connectMbed(dummy)
-        greenButton.enabled = false
-        orangeButton.enabled = false
+        greenButton.isEnabled = false
+        orangeButton.isEnabled = false
         segmentOutlet.selectedSegmentIndex = 1
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -51,35 +52,35 @@ class ViewController: UIViewController, MbedderDelegate {
     }
     
     func didReadList() {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.greenButton.enabled = true
-            self.orangeButton.enabled = true
+        DispatchQueue.main.async(execute: {
+            self.greenButton.isEnabled = true
+            self.orangeButton.isEnabled = true
         })
-        self.view.showToast("成功取得端點列表", position: .Bottom, popTime: 3, dismissOnTap: true)
+        self.view.makeToast("成功取得端點列表", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
     }
     
     func notReadingEnd() {
-        self.view.showToast("無資料！請檢查網路連線！", position: .Bottom, popTime: 3, dismissOnTap: true)
+        self.view.makeToast("無資料！請檢查網路連線！", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
     }
     
-    func didUpdatedValue(string: String, resource: String) {
+    func didUpdatedValue(_ string: String, resource: String) {
         //not used here
     }
     
-    func didPUTthenPOST(resource: String) {
+    func didPUTthenPOST(_ resource: String) {
         //not used here
     }
     
     
-    func returnPayload(string: String, resource: String) {
+    func returnPayload(_ string: String, resource: String) {
         //not used here
     }
     
-    func returnStatus(string: String, resource: String) {
+    func returnStatus(_ string: String, resource: String) {
         //not used here
     }
     
-    func returnNotificationaFromServer(content: NSDictionary) {
+    func returnNotificationaFromServer(_ content: NSDictionary) {
         //not used here
     }
 }

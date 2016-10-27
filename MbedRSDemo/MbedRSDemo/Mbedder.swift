@@ -29,7 +29,7 @@ class Mbedder: NSObject {
     
     //variables and constants
     let basicList = "https://api.connector.mbed.com/endpoints"
-    var authKey = "Bearer IIqReRdjBniF67b3Ht4k2NnG8XE3hACSeouWeJlvHgY5iqOyrbmHs56oBpehwy4PdKciUne9IQf1IWc4HKXojxkXRI7790zsibuj"
+    var authKey = "Bearer Bw2GI9DBxhcxLahcOQO4mWChfX6UIH4BH8y8cIqtTaUJN0wWHDqWkaovxNM47bQnizV2qgeZXMgb4Nb84txgsXAqcA2U7QM5nlX3"
     
     var endName: String?
     var endNodes: NSMutableDictionary = [:]

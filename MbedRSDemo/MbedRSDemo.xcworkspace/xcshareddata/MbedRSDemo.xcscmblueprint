@@ -5,11 +5,13 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "3DEE348339549D2FB2F5E154D083822C5CB44DF0" : 0,
+    "AF71510D8E5916F98149C35D1FFAED8F9F70342A" : 9223372036854775807,
     "8A3AAF07F8AEFDDFB813EA1F9B77C708964CA566" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C5635D2B-9087-40C6-82F2-4658F2AB047D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "3DEE348339549D2FB2F5E154D083822C5CB44DF0" : "MbedRSDemo\/RestEssentials\/",
+    "AF71510D8E5916F98149C35D1FFAED8F9F70342A" : "MbedRSDemo\/EasyToast\/",
     "8A3AAF07F8AEFDDFB813EA1F9B77C708964CA566" : "MbedRSDemo\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "MbedRSDemo",
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/timsheu\/MbedRSDemo.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8A3AAF07F8AEFDDFB813EA1F9B77C708964CA566"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/f-meloni\/EasyToast.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AF71510D8E5916F98149C35D1FFAED8F9F70342A"
     }
   ]
 }

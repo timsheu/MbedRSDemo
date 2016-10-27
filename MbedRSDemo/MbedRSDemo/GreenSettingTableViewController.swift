@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ASToast
+import Toaster
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -220,9 +220,9 @@ class GreenSettingTableViewController: UITableViewController, MbedderDelegate {
             DispatchQueue.main.async(execute: {
                 Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(GreenSettingTableViewController.timerPolling), userInfo: self.resource, repeats: false)
                 if self.count == 10 {
-                    self.view.makeToast("伺服器忙碌，無法更新頁面數值，但仍可修改數值", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
+                    Toast(text: "伺服器忙碌，無法更新頁面數值，但仍可修改數值", duration: Delay.short).show()
                 } else if self.count == 2 {
-                    self.view.makeToast("連線困難，持續嘗試中", duration: 3, position: ASToastPosition.ASToastPositionBotom.rawValue as AnyObject?, backgroundColor: nil)
+                    Toast(text: "連線困難，持續嘗試中", duration: Delay.short).show()
                 }
             })
             

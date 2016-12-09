@@ -1,0 +1,13 @@
+/* 
+  Strings.strings
+  uKeeper
+
+  Created by CCHSU20 on 30/11/2016.
+  Copyright © 2016 CCHSU20. All rights reserved.
+*/
+
+"SERVER_BUSY" = "Server is busy, value cannot be updated but still can be set.";
+"SERVER_NOT_RESPOND" = "Not responding, keep on trying";
+"CONNECTING" = "Connecting...";
+"GET_NODE_SUCCESS" = "Get node list successfully";
+"CHECK_CONNECTION" = "No data coming in, please check the inter net connection!";

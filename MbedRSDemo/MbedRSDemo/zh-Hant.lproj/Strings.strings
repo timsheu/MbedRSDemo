@@ -1,0 +1,13 @@
+/* 
+  Strings.strings
+  uKeeper
+
+  Created by CCHSU20 on 30/11/2016.
+  Copyright © 2016 CCHSU20. All rights reserved.
+*/
+
+"SERVER_BUSY" = "伺服器忙碌，無法更新頁面數值，但仍可修改數值";
+"SERVER_NOT_RESPOND" = "連線困難，持續嘗試中";
+"CONNECTING" = "連接伺服器中";
+"GET_NODE_SUCCESS" = "成功取得端點列表";
+"CHECK_CONNECTION" = "無資料！請檢查網路連線！";

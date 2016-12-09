@@ -19,6 +19,7 @@
 		A845C4141DA2713900880753 /* RestEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B1C8601D9E0461000F345D /* RestEssentials.framework */; };
 		A845C4161DA2747900880753 /* Pods_uKeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A845C4151DA2747900880753 /* Pods_uKeeperTests.framework */; };
 		A85797271D8FCE8A005874F5 /* NodeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85797261D8FCE8A005874F5 /* NodeElement.swift */; };
+		A8690F681DEEB94D00E1E80E /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8690F6A1DEEB94D00E1E80E /* Strings.strings */; };
 		A8D992AE1D8676AD007B1636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AD1D8676AD007B1636 /* AppDelegate.swift */; };
 		A8D992B01D8676AD007B1636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D992AF1D8676AD007B1636 /* ViewController.swift */; };
 		A8D992B31D8676AD007B1636 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D992B11D8676AD007B1636 /* Main.storyboard */; };
@@ -110,6 +111,13 @@
 		A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenSettingTableViewController.swift; sourceTree = "<group>"; };
 		A845C4151DA2747900880753 /* Pods_uKeeperTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_uKeeperTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_uKeeperTests.framework"; sourceTree = "<group>"; };
 		A85797261D8FCE8A005874F5 /* NodeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElement.swift; sourceTree = "<group>"; };
+		A8690F611DEEB1B500E1E80E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		A8690F621DEEB1B500E1E80E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A8690F641DEEB1BB00E1E80E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		A8690F651DEEB1BB00E1E80E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A8690F691DEEB94D00E1E80E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Strings.strings; sourceTree = "<group>"; };
+		A8690F6C1DEEB97F00E1E80E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Strings.strings"; sourceTree = "<group>"; };
+		A8690F6D1DEEB98500E1E80E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Strings.strings"; sourceTree = "<group>"; };
 		A8B1C8461D9CEB70000F345D /* uKeeper-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uKeeper-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8B1C8471D9CEBA1000F345D /* lwm2m_id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lwm2m_id.h; sourceTree = "<group>"; };
 		A8B1C85A1D9E0460000F345D /* RestEssentials.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestEssentials.xcodeproj; path = ../RestEssentials/RestEssentials.xcodeproj; sourceTree = "<group>"; };
@@ -250,6 +258,7 @@
 				A810EAB21D8802B1007752C2 /* GreenSettingTableViewController.swift */,
 				A85797261D8FCE8A005874F5 /* NodeElement.swift */,
 				A8B1C8461D9CEB70000F345D /* uKeeper-Bridging-Header.h */,
+				A8690F6A1DEEB94D00E1E80E /* Strings.strings */,
 			);
 			path = MbedRSDemo;
 			sourceTree = "<group>";
@@ -372,6 +381,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = A8D992A11D8676AD007B1636;
 			productRefGroup = A8D992AB1D8676AD007B1636 /* Products */;
@@ -414,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D992B81D8676AD007B1636 /* LaunchScreen.storyboard in Resources */,
+				A8690F681DEEB94D00E1E80E /* Strings.strings in Resources */,
 				A8D992B51D8676AD007B1636 /* Assets.xcassets in Resources */,
 				A8D992B31D8676AD007B1636 /* Main.storyboard in Resources */,
 			);
@@ -632,10 +644,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A8690F6A1DEEB94D00E1E80E /* Strings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8690F691DEEB94D00E1E80E /* Base */,
+				A8690F6C1DEEB97F00E1E80E /* zh-Hans */,
+				A8690F6D1DEEB98500E1E80E /* zh-Hant */,
+			);
+			name = Strings.strings;
+			sourceTree = "<group>";
+		};
 		A8D992B11D8676AD007B1636 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A8D992B21D8676AD007B1636 /* Base */,
+				A8690F611DEEB1B500E1E80E /* zh-Hans */,
+				A8690F641DEEB1BB00E1E80E /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -644,6 +668,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A8D992B71D8676AD007B1636 /* Base */,
+				A8690F621DEEB1B500E1E80E /* zh-Hans */,
+				A8690F651DEEB1BB00E1E80E /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -655,6 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -701,6 +728,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

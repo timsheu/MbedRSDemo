@@ -1,0 +1,48 @@
+
+/* Class = "UIButton"; normalTitle = "恆溫控制"; ObjectID = "0ch-Cl-9jO"; */
+"0ch-Cl-9jO.normalTitle" = "恆溫控制";
+
+/* Class = "UIButton"; normalTitle = "照度"; ObjectID = "1fa-MQ-Ilf"; */
+"1fa-MQ-Ilf.normalTitle" = "照度";
+
+/* Class = "UIButton"; normalTitle = "光照控制"; ObjectID = "2G7-kI-g77"; */
+"2G7-kI-g77.normalTitle" = "光照控制";
+
+/* Class = "UINavigationItem"; title = "Nuvoton 微型溫室管家"; ObjectID = "7Ka-Ka-uS2"; */
+"7Ka-Ka-uS2.title" = "Nuvoton 微型溫室管家";
+
+/* Class = "UIButton"; normalTitle = "溫度"; ObjectID = "7iH-wz-NSs"; */
+"7iH-wz-NSs.normalTitle" = "溫度";
+
+/* Class = "UIButton"; normalTitle = "Mbed 連線"; ObjectID = "GQ6-fS-gRH"; */
+"GQ6-fS-gRH.normalTitle" = "連接管家";
+
+/* Class = "UILabel"; text = "Key Owner"; ObjectID = "GoT-F5-rrt"; */
+"GoT-F5-rrt.text" = "Key Owner";
+
+/* Class = "UISegmentedControl"; KBz-y0-5FY.segmentTitles[0] = "Tim"; ObjectID = "KBz-y0-5FY"; */
+"KBz-y0-5FY.segmentTitles[0]" = "Tim";
+
+/* Class = "UISegmentedControl"; KBz-y0-5FY.segmentTitles[1] = "Morgan"; ObjectID = "KBz-y0-5FY"; */
+"KBz-y0-5FY.segmentTitles[1]" = "Morgan";
+
+/* Class = "UISegmentedControl"; KBz-y0-5FY.segmentTitles[2] = "Peter"; ObjectID = "KBz-y0-5FY"; */
+"KBz-y0-5FY.segmentTitles[2]" = "Peter";
+
+/* Class = "UIButton"; normalTitle = "環境箱數據"; ObjectID = "hKH-rY-Yxs"; */
+"hKH-rY-Yxs.normalTitle" = "環境箱數據";
+
+/* Class = "UIButton"; normalTitle = "環境箱設定"; ObjectID = "hhn-Gl-e0V"; */
+"hhn-Gl-e0V.normalTitle" = "環境箱設定";
+
+/* Class = "UIButton"; normalTitle = "濕度"; ObjectID = "lKK-Mm-6jm"; */
+"lKK-Mm-6jm.normalTitle" = "濕度";
+
+/* Class = "UIButton"; normalTitle = "活動"; ObjectID = "nlu-nQ-FWy"; */
+"nlu-nQ-FWy.normalTitle" = "活動";
+
+/* Class = "UILabel"; text = "Reading..."; ObjectID = "ti2-EL-Sxp"; */
+"ti2-EL-Sxp.text" = "Reading...";
+
+/* Class = "UIButton"; normalTitle = "遠端餵食"; ObjectID = "xYg-Q4-kTN"; */
+"xYg-Q4-kTN.normalTitle" = "遠端餵食";
